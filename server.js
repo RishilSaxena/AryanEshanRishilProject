@@ -8,7 +8,7 @@ mongoose.connect("mongodb+srv://user:mrdan@cluster0.eud2x.mongodb.net/marketplac
 
 const app = express();
 app.use(express.urlencoded({extended: true}))
-app.use(express.json());
+app.use(express.json());    
 
 const PORT = process.env.PORT || 3000;
 require("./routes/apiroutes")(app);

@@ -8,7 +8,7 @@ const ProductSchema = new Schema({
         required: "Name is required",
 
     },
-    imagelink:{
+    imagepath:{
         type:String,
         required: "Link is required"
     },
@@ -19,7 +19,11 @@ const ProductSchema = new Schema({
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: "Review"
-    }]
+    }],
+    color:{
+        type:String,
+        required:"Color is required.",
+    },
 })
 
 const Product = mongoose.model("Product", ProductSchema);
