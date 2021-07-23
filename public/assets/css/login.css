@@ -1,0 +1,39 @@
+.container{
+    margin-top: 100px;
+}   
+.card{
+    margin-top:20px;
+}
+form{
+    padding:20px;
+}
+input, .btn{
+    margin-top:10px;
+    margin-bottom:10px;
+
+}
+.nav-bar{
+    background-color: black;
+    position:fixed;
+    top:0;
+    z-index: 10000;
+    width:100%;
+    height:50px;
+    margin-bottom:20px;
+
+}
+.nav-bar a{
+    color: white;
+    font-size:20px;
+    text-decoration: none;
+    margin-left:10px;
+    margin-right:10px;
+    transition: color 0.3s ease-in-out
+}
+.nav-bar a:hover{
+    color:grey;
+}
+.forgot-password, .register{
+    text-decoration:none;
+    cursor: pointer;
+}
