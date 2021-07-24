@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
-    <link rel="stylesheet" href="./assets/css/index.css" type="text/css" />
+    <title>Document</title>
     <script
       src="https://kit.fontawesome.com/14edae483b.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="./assets/css/navbar.css">
   </head>
   <body>
     <nav>
@@ -65,31 +64,6 @@
       </div>
     </nav>
     <div class="shadow"></div>
-    <div class="landing-image">
-      <h1 class="landing-title">
-        Welcome to the biggest tech merchandise online store in existence.
-      </h1>
-    </div>
-    <div class="container">
-      <h1 class="section-header">T-Shirts</h1>
-      <div class="section-images">
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-      </div>
-      <h1 class="section-header">Shorts and Pants</h1>
-      <div class="section-images">
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-      </div>
-      <h1 class="section-header">Accessories</h1>
-      <div class="section-images">
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-      </div>
-    </div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -104,9 +78,7 @@
           data.forEach((page) => {
             const sim = similarity(searchTerm, page.title);
             if (sim > 0.3) {
-              $(".search-res").append(
-                `<li><a href="${page.path}">page.title</a></li>`
-              );
+              $(".search-res").append(`<li><a href="${page.path}">page.title</a></li>`)
             }
           });
         });
@@ -118,7 +90,6 @@
           $(".close").addClass("active");
           $(".shadow").addClass("active");
           $(".search-box").addClass("active");
-          $("body").addClass("no-scroll")
         });
         $(".close").on("click", function () {
           close();
@@ -132,7 +103,6 @@
           $(".close").removeClass("active");
           $(".shadow").removeClass("active");
           $(".search-box").removeClass("active");
-          $("body").removeClass("no-scroll")
         }
         function similarity(s1, s2) {
           var longer = s1;
