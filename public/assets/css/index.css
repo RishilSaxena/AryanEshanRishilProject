@@ -1,48 +1,69 @@
-
-.landing-image{
-    background-image: url("https://via.placeholder.com/1000x1000");
-    text-align: center;
-    padding:50px;
-    padding-bottom:300px;
-
+* {
+  margin: 0;
+  padding: 0;
 }
-.landing-title{
-    margin-top:20px;
+body {
+    height: 100vh;
+    overflow: hidden;
 }
-.container{
-    text-align:center;
+.cont {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
-.section-header{
-    font-size: 35px;
-    margin-top:30px;
+section.content {
+  margin-top: 0px;
+  background: #eee;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
+  overflow: hidden;
 }
-.section-images{
-    display:flex;
-    justify-content: center;
+section.content:nth-of-type(2) {
+    margin-top: 0px;
+    background: #222;
 }
-.section-images img{
-    width:30%;
-    margin-left:10px;
-    margin-right:10px;
+section.content:nth-of-type(2) .text h1 {
+    color: #fff
 }
-.nav-bar{
-    background-color: black;
-    position:fixed;
-    top:0;
-    z-index: 10000;
-    width:100%;
-    height:50px;
-    margin-bottom:20px;
-
+section.content:nth-of-type(2) .text h2 {
+    color: #eee
 }
-.nav-bar a{
-    color: white;
-    font-size:20px;
-    text-decoration: none;
-    margin-left:10px;
-    margin-right:10px;
-    transition: color 0.3s ease-in-out
+section.content:nth-of-type(2) .text h3 {
+    color: #999
 }
-.nav-bar a:hover{
-    color:grey;
+section.content:last-of-type {
+    margin-bottom: 0px;
+}
+section.content .text {
+  text-align: center;
+  cursor: pointer;
+  cursor: pointer;
+}
+section.content .text h1 {
+  font-size: 50px;
+  margin: 0;
+  padding-top: 50px;
+  cursor: pointer;
+}
+section.content .text h2 {
+  font-size: 25px;
+  color: #444;
+  margin: 0;
+  cursor: pointer;
+}
+section.content .text h3 {
+  font-weight: 400;
+  font-size: 15px;
+  color: #999;
+  margin: 0;
+  cursor: pointer;
+}
+section.content img {
+  cursor: pointer;
+  max-width: 97vw;
 }

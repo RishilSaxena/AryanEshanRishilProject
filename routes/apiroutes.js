@@ -17,6 +17,13 @@ module.exports = function(app){
             res.json(data);
         })
     })
+    //we will add the pages manually
+    app.get("/pages", function(req, res) {
+        db.page.find({}).then(function(data) {
+            res.json(data);
+            //data will have a page title and a page path
+        })
+    })
     //sending {username: username, password: password}
     app.post("/login", function(req, res){
         db.User.find({}).then(function(data){

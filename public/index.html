@@ -13,171 +13,116 @@
     ></script>
   </head>
   <body>
-    <nav>
-      <div class="menu">
-        <div class="nav-items">
-          <ul>
-            <li>
-              <a href="#" class="menu-item"><i class="fa fa-code"></i></a>
-            </li>
-            <li><a href="#" class="menu-item">All</a></li>
-            <li><a href="#" class="menu-item">T-Shirts</a></li>
-            <li><a href="#" class="menu-item">Hoodies</a></li>
-            <li><a href="#" class="menu-item">Mugs</a></li>
-            <li><a href="#" class="menu-item">Caps</a></li>
-            <li>
-              <a href="#" id="search" class="menu-item"
-                ><i class="fa fa-search"></i
-              ></a>
-            </li>
-            <li>
-              <a href="#" class="menu-item"
-                ><i class="fa fa-shopping-cart"></i
-              ></a>
-            </li>
-          </ul>
-        </div>
-        <div class="search-form">
-          <form>
-            <input
-              class="nav-search"
-              type="text"
-              name=""
-              placeholder="Search"
-              oninput="updateSearchBox()"
-            />
-          </form>
-          <a href="#" class="close"><i class="fa fa-times"></i></a>
-        </div>
-        <div class="search-box">
-          <section>
-            <div class="quick-links">
-              <h3>Quick Links</h3>
+    <div class="cont">
+      <nav>
+        <div class="menu">
+          <div class="nav-items">
+            <ul>
+              <li>
+                <a href="#" class="menu-item"><i class="fa fa-code"></i></a>
+              </li>
+              <li><a href="#" class="menu-item">All</a></li>
+              <li><a href="#" class="menu-item">T-Shirts</a></li>
+              <li><a href="#" class="menu-item">Hoodies</a></li>
+              <li><a href="#" class="menu-item">Mugs</a></li>
+              <li><a href="#" class="menu-item">Caps</a></li>
+              <li>
+                <a href="#" id="search" class="menu-item"
+                  ><i class="fa fa-search"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="menu-item"
+                  ><i class="fa fa-shopping-cart"></i
+                ></a>
+                <div class="dropdown"></div>
+              </li>
+              <li>
+                <a href="#" class="menu-item settings"
+                  ><i class="fa fa-cog"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="search-form">
+            <form>
+              <input
+                class="nav-search"
+                type="text"
+                name=""
+                placeholder="Search"
+                oninput="updateSearchBox()"
+              />
+            </form>
+            <a href="#" class="close"><i class="fa fa-times"></i></a>
+          </div>
+          <div class="warpper">
+            <div class="search-box">
+              <section>
+                <div class="quick-links">
+                  <h3>Quick Links</h3>
+                  <ul>
+                    <li><a href="#">Blank Page</a></li>
+                    <li><a href="#">Blank Page</a></li>
+                    <li><a href="#">Blank Page</a></li>
+                    <li><a href="#">Blank Page</a></li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <div class="settings-dropdown">
               <ul>
-                <li><a href="#">Blank Page</a></li>
-                <li><a href="#">Blank Page</a></li>
-                <li><a href="#">Blank Page</a></li>
-                <li><a href="#">Blank Page</a></li>
+                <li>
+                  <a href="#"><i class="fa fa-home"></i><span>Home</span></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-user-cog"></i><span>Account</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-user"></i><span>About Us</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-sign-in-alt"></i><span>Login</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-sign-out-alt"></i><span>Log Out</span>
+                  </a>
+                </li>
               </ul>
             </div>
-          </section>
+          </div>
         </div>
-      </div>
-    </nav>
-    <div class="shadow"></div>
-    <div class="landing-image">
-      <h1 class="landing-title">
-        Welcome to the biggest tech merchandise online store in existence.
-      </h1>
-    </div>
-    <div class="container">
-      <h1 class="section-header">T-Shirts</h1>
-      <div class="section-images">
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-      </div>
-      <h1 class="section-header">Shorts and Pants</h1>
-      <div class="section-images">
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-      </div>
-      <h1 class="section-header">Accessories</h1>
-      <div class="section-images">
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-        <img src="https://via.placeholder.com/200x200" />
-      </div>
+      </nav>
+      <div class="shadow"></div>
+      <section class="content">
+        <div class="text">
+          <h1>T-Shirts</h1>
+          <h2>New and Improved Design</h2>
+          <h3>Starting at just $24.99</h3>
+        </div>
+        <img src="./assets/images/merch/tshirts/all-ts.png" alt="tshirts" />
+      </section>
+      <section class="content">
+        <div class="text">
+          <h1>Hoodies</h1>
+          <h2>Comfy Soft Warm</h2>
+          <h3>Starting at just $49.99</h3>
+        </div>
+        <img src="./assets/images/merch/hoodies/all-hoods.png" alt="tshirts" />
+      </section>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script>
-      function updateSearchBox() {
-        $(".quick-links").empty();
-        $(".quick-links").append("<ul class='serach-res'>");
-        const searchTerm = $(".nav-search").val();
-        $.get("/pages/", function (data) {
-          data.forEach((page) => {
-            const sim = similarity(searchTerm, page.title);
-            if (sim > 0.3) {
-              $(".search-res").append(
-                `<li><a href="${page.path}">page.title</a></li>`
-              );
-            }
-          });
-        });
-      }
-      $(document).ready(function () {
-        $("#search").on("click", function () {
-          $(".menu-item").addClass("hide-item");
-          $(".search-form").addClass("active");
-          $(".close").addClass("active");
-          $(".shadow").addClass("active");
-          $(".search-box").addClass("active");
-          $("body").addClass("no-scroll")
-        });
-        $(".close").on("click", function () {
-          close();
-        });
-        $(".shadow").on("click", function () {
-          close();
-        });
-        function close() {
-          $(".menu-item").removeClass("hide-item");
-          $(".search-form").removeClass("active");
-          $(".close").removeClass("active");
-          $(".shadow").removeClass("active");
-          $(".search-box").removeClass("active");
-          $("body").removeClass("no-scroll")
-        }
-        function similarity(s1, s2) {
-          var longer = s1;
-          var shorter = s2;
-          if (s1.length < s2.length) {
-            longer = s2;
-            shorter = s1;
-          }
-          var longerLength = longer.length;
-          if (longerLength == 0) {
-            return 1.0;
-          }
-          return (
-            (longerLength - editDistance(longer, shorter)) /
-            parseFloat(longerLength)
-          );
-        }
-
-        function editDistance(s1, s2) {
-          s1 = s1.toLowerCase().replace(/(\((.*?)\))/g, "");
-          s2 = s2.toLowerCase().replace(/(\((.*?)\))/g, "");
-          s1 = s1.replace(/(\<(.*?)\>)/g, "");
-          s2 = s2.replace(/(\<(.*?)\>)/g, "");
-
-          var costs = new Array();
-          for (var i = 0; i <= s1.length; i++) {
-            var lastValue = i;
-            for (var j = 0; j <= s2.length; j++) {
-              if (i == 0) costs[j] = j;
-              else {
-                if (j > 0) {
-                  var newValue = costs[j - 1];
-                  if (s1.charAt(i - 1) != s2.charAt(j - 1))
-                    newValue =
-                      Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
-                  costs[j - 1] = lastValue;
-                  lastValue = newValue;
-                }
-              }
-            }
-            if (i > 0) costs[s2.length] = lastValue;
-          }
-          return costs[s2.length];
-        }
-      });
-    </script>
+    <script src="./assets/navbar.js"></script>
   </body>
 </html>

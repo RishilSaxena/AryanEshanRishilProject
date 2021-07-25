@@ -17,10 +17,11 @@ nav {
   position: relative;
   margin: 0 auto;
   width: 1000px;
-  overflow: hidden;
 }
 .menu .search-box {
+  visibility: hidden;
   width: 620px;
+  height: 0px;
   transform: translate(-10px, 0);
   background: white;
   margin: 0 auto;
@@ -29,8 +30,10 @@ nav {
   transition: 0.2s;
 }
 .menu .search-box.active {
+  visibility: visible;
   transition-delay: 0.2s;
   opacity: 1;
+  height: auto;
 }
 
 .menu .search-box section {
@@ -52,6 +55,10 @@ nav {
   border-radius: 5px;
   list-style: none;
   line-height: 35px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-35%);
+  opacity: 0;
 }
 .menu .search-box section ul li a {
   padding: 0 5px;
@@ -64,6 +71,24 @@ nav {
 .menu .search-box section ul li:hover a {
   color: royalblue;
 }
+.menu .search-box section ul li.show {
+  opacity: 1;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.menu .search-box section ul li:nth-child(1).show {
+  transition: transform 0.5s 0s, opacity 0.2s 0s, color 0.3s 0s;
+}
+.menu .search-box section ul li:nth-child(2).show {
+  transition: transform 0.5s 0.05s, opacity 0.2s 0.05s, color 0.3s 0s;
+}
+.menu .search-box section ul li:nth-child(3).show {
+  transition: transform 0.5s 0.1s, opacity 0.2s 0.1s, color 0.3s 0s;
+}
+.menu .search-box section ul li:nth-child(4).show {
+  transition: transform 0.5s 0.15s, opacity 0.2s 0.15s, color 0.3s 0s;
+}
+
 .menu .nav-items ul {
   width: 100%;
   margin: 0;
@@ -123,6 +148,9 @@ nav {
 .menu .nav-items ul li:nth-child(8) a.menu-item.hide-item {
   transition: transform 0.5s 0s, opacity 0.2s 0s, color 0.3s 0s;
 }
+.menu .nav-items ul li:nth-child(9) a.menu-item.hide-item {
+  transition: transform 0.5s 0s, opacity 0.2s 0s, color 0.3s 0s;
+}
 
 .menu .nav-items ul li:nth-child(1) a.menu-item {
   transition: transform 0.5s 0s, opacity 0.2s 0s, color 0.3s 0s;
@@ -147,6 +175,9 @@ nav {
 }
 .menu .nav-items ul li:nth-child(8) a.menu-item {
   transition: transform 0.5s 0.3s, opacity 0.2s 0.3s, color 0.3s 0s;
+}
+.menu .nav-items ul li:nth-child(9) a.menu-item {
+  transition: transform 0.5s 0.35s, opacity 0.2s 0.35s, color 0.3s 0s;
 }
 .search-form {
   position: absolute;
@@ -206,6 +237,7 @@ nav {
   visibility: visible;
 }
 .shadow {
+  visibility: hidden;
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -216,8 +248,90 @@ nav {
   background: rgba(0, 0, 0, 0.4);
 }
 .shadow.active {
+  visibility: visible;
   opacity: 1;
 }
 body.no-scroll {
   overflow: hidden;
 }
+.settings-dropdown {
+  transition: 0.3s;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 54px;
+  right: -50px;
+  background: #333;
+  backdrop-filter: saturate(180%) blur(20px);
+  border: 0.5px solid #757575;
+  height: 0px;
+  width: 200px;
+  border-radius: 1rem;
+}
+.settings-dropdown.active {
+  visibility: visible;
+  opacity: 1;
+  height: 230px;
+}
+.settings-dropdown::before {
+  position: absolute;
+  top: -6px;
+  right: 51px;
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #333;
+  backdrop-filter: saturate(180%) blur(20px);
+  border-top: 1px solid #757575;
+  border-right: 1px solid #757575;
+  transform: rotate(-45deg);
+}
+.settings-dropdown ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+.settings-dropdown ul li {
+  opacity: 0;
+  transform: translateX(10%);
+  width: 70%;
+  margin: 0 auto;
+  line-height: 40px;
+  padding: 0 0 0 40px;
+  border-radius: 5px;
+}
+.settings-dropdown.active ul li {
+  transform: translateX(0%);
+  opacity: 1;
+}
+.settings-dropdown.active ul li:nth-child(1) {
+  transition: background 0.1s, opacity 0.3s 0.0s, transform 0.2s 0.0s;
+}
+.settings-dropdown.active ul li:nth-child(2) {
+  transition: background 0.1s, opacity 0.3s 0.05s, transform 0.2s 0.05s;
+}
+.settings-dropdown.active ul li:nth-child(3) {
+  transition: background 0.1s, opacity 0.3s 0.1s, transform 0.2s 0.1s;
+}
+.settings-dropdown.active ul li:nth-child(4) {
+  transition: background 0.1s, opacity 0.3s 0.15s, transform 0.2s 0.15s;
+}
+.settings-dropdown.active ul li:nth-child(5) {
+  transition: background 0.1s, opacity 0.3s 0.2s, transform 0.3s 0.2s;
+}
+.settings-dropdown ul li i {
+  position: absolute;
+  left: 10px;
+  top: 12px;
+}
+.settings-dropdown ul li a {
+  transition: 0.3s;
+  text-decoration: none;
+  color: #eee;
+}
+.settings-dropdown ul li:hover {
+  background: #444;
+}
+.settings-dropdown ul li:hover a {
+  color: #fff;
+} 
