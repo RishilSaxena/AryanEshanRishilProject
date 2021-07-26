@@ -17,6 +17,7 @@ module.exports = function(app){
             res.json(data);
         })
     })
+
     app.get("/productsByCategory/:category", function(req, res){
         db.Product.find({category: req.params.category}).then(function(data){
             console.log(req.params.category);
