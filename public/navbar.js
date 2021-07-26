@@ -2,17 +2,23 @@ function updateSearchBox() {
   $(".quick-links").empty();
   $(".quick-links").append("<ul class='serach-res'>");
   const searchTerm = $(".nav-search").val();
-  $.get("/pages/", function (data) {
+  $.get("/pages", function (data) {
     data.forEach((page) => {
       const sim = similarity(searchTerm, page.title);
       if (sim > 0.3) {
         $(".search-res").append(
-          `<li><a href="${page.path}">page.title</a></li>`
+          `<li><a href="${page.path}">${page.title}</a></li>`
         );
       }
     });
   });
 }
+/*
+{
+  path: /public/index.html
+  title: Home Page
+}
+*/
 $(document).ready(function () {
   $("#search").on("click", function () {
     $(".menu-item").addClass("hide-item");

@@ -36,6 +36,20 @@ section.content:nth-of-type(2) .text h2 {
 section.content:nth-of-type(2) .text h3 {
     color: #999
 }
+
+section.content:nth-of-type(3) {
+  margin-top: 0px;
+  background: rgb(49, 194, 97);
+}
+section.content:nth-of-type(3) .text h1 {
+  color: #fff
+}
+section.content:nth-of-type(3) .text h2 {
+  color: #eee
+}
+section.content:nth-of-type(3) .text h3 {
+  color: #ddd
+}
 section.content:last-of-type {
     margin-bottom: 0px;
 }
