@@ -3,13 +3,12 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 
 
-
 mongoose.connect("mongodb+srv://user:mrdan@cluster0.eud2x.mongodb.net/marketplace?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 const app = express();
 app.use(express.urlencoded({extended: true}))
-app.use(express.json());
-
+app.use(express.json());    
+app.use(express.static("public"));
 const PORT = process.env.PORT || 3000;
 require("./routes/apiroutes")(app);
 require("./routes/htmlroutes")(app);
