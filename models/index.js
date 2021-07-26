@@ -1,5 +1,5 @@
 module.exports = {
     Product: require("./Product"),
-    Review: requrire("./Review"),
+    Review: require("./Review"),
     User: require("./User")
 }

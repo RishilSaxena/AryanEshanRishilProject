@@ -1,13 +1,26 @@
-
+.background{
+    background-color:grey;
+}
 .landing-image{
-    background-image: url("https://via.placeholder.com/1000x1000");
+    background-image: url("../images/merch/tshirt/all-ts.png");
+    background-size:cover;
+    max-width:100%;
     text-align: center;
     padding:50px;
     padding-bottom:300px;
 
 }
+.landing-title-box{
+    background: rgba(99, 99, 99, 0.1);
+    width:fit-content;
+    height:fit-content;
+    margin:auto;
+}
 .landing-title{
-    margin-top:20px;
+    margin-top:100px;
+    
+    font-weight:bold;
+    text-shadow: 2px 2px 3px rgb(197, 195, 195);
 }
 .container{
     text-align:center;

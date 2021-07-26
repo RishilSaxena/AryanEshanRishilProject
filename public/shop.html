@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Page</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/shop.css" />
+  </head>
+  <body>
+    <div class="filter">
+      <h1>Filters:</h1>
+      <form id="filter-form">
+        <div class="radio-input">
+          <input
+            type="radio"
+            id="all"
+            name="clothes-filter"
+            value="all"
+            checked
+          />
+          <label for="all">All Clothes</label>
+        </div>
+        <div class="radio-input">
+          <input
+            type="radio"
+            id="tshirt"
+            name="clothes-filter"
+            value="tshirt"
+          />
+          <label for="tshirt">T-Shirts</label>
+        </div>
+        <div class="radio-input">
+          <input
+            type="radio"
+            id="hoodies"
+            name="clothes-filter"
+            value="hoodies"
+          />
+          <label for="hoodies">Hoodies</label>
+        </div>
+        <div class="radio-input">
+          <input
+            type="radio"
+            id="accessories"
+            name="clothes-filter"
+            value="accessories"
+          />
+          <label for="accessories">Accessories</label>
+        </div>
+        <div class="radio-input">
+          <label for="price">Price: </label>
+          <select id="price" name="price">
+            <option value="0.99-9.99">$0.99-$9.99</option>
+            <option value="9.99-19.99">$9.99-$19.99</option>
+            <option value="19.99-29.99">$19.99-$29.99</option>
+            <option value="29.99-49.99">$29.99-$49.99</option>
+            <option value="49.99-69.99">$49.99-$69.99</option>
+            <option value="all">All</option>
+          </select>
+        </div>
+        <button class="submit" type="submit">Search</button>
+      </form>
+    </div>
+    <div class="tile-holder"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./shop.js"></script>
+  </body>
+</html>
