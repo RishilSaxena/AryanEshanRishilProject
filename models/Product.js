@@ -16,6 +16,11 @@ const ProductSchema = new Schema({
         type:String,
         required:"Category is required."
     },
+    //tshirts, accessories, hoodies
+    price:{
+        type:Number,
+        required:"Price is required."
+    },
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: "Review"
@@ -23,7 +28,7 @@ const ProductSchema = new Schema({
     color:{
         type:String,
         required:"Color is required.",
-    },
+    }
 })
 
 const Product = mongoose.model("Product", ProductSchema);

@@ -1,0 +1,61 @@
+body{
+    margin:0;
+}
+.filter{
+    background-color:grey;
+    border-color: black;
+    border-radius:2px;
+    border-width:2px;
+    padding:10px;
+    width:20%;
+    text-align:center;
+    position:fixed;
+    height:100%;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+form{
+    justify-content: center;
+}
+.radio-input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size:20px;
+}
+.submit{
+    width:100px;
+    height:50px;
+    background-color:white;
+    font-size:20px;
+    border-color:black;
+    border-radius:4px;
+    transition:all 0.3s ease-in-out
+}
+.submit:hover{
+    background-color:black;
+    color:white;
+    cursor:pointer;
+}
+.tile-holder{
+    background-color:white;
+    float:right;
+    max-width:75%;
+    height:1000px;
+    margin-left:300px;
+    display:flex;
+}
+.tile{
+    border-color:black;
+    border-radius:4px;  
+    border-style:solid;
+    width:fit-content;
+    padding:20px;
+    text-align:center;
+    height:fit-content;
+}
+.tile img{
+    width:100px;
+}
