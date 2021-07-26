@@ -15,5 +15,5 @@ require("./routes/htmlroutes")(app);
 
 
 app.listen(PORT, function () {
-console.log('App running on port http://localhost://'  + PORT);
+console.log('App running on port http://localhost:'  + PORT);
 });

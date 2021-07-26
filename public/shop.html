@@ -6,68 +6,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop Page</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/shop.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/navbar.css" />
+    <script
+      src="https://kit.fontawesome.com/14edae483b.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <div class="filter">
-      <h1>Filters:</h1>
-      <form id="filter-form">
-        <div class="radio-input">
-          <input
-            type="radio"
-            id="all"
-            name="clothes-filter"
-            value="all"
-            checked
-          />
-          <label for="all">All Clothes</label>
+    <div class="cont">
+      <nav>
+        <div class="menu">
+          <div class="nav-items">
+            <ul>
+              <li>
+                <a href="#" class="menu-item"><i class="fa fa-code"></i></a>
+              </li>
+              <li><a href="#" class="menu-item">All</a></li>
+              <li><a href="#" class="menu-item">T-Shirts</a></li>
+              <li><a href="#" class="menu-item">Hoodies</a></li>
+              <li><a href="#" class="menu-item">Mugs</a></li>
+              <li><a href="#" class="menu-item">Caps</a></li>
+              <li>
+                <a href="#" id="search" class="menu-item"
+                  ><i class="fa fa-search"></i
+                ></a>
+              </li>
+              <li>
+                <a href="#" class="menu-item"
+                  ><i class="fa fa-shopping-cart"></i
+                ></a>
+                <div class="dropdown"></div>
+              </li>
+              <li>
+                <a href="#" class="menu-item settings"
+                  ><i class="fa fa-cog"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="search-form">
+            <form>
+              <input
+                class="nav-search"
+                type="text"
+                name=""
+                placeholder="Search"
+                oninput="updateSearchBox()"
+              />
+            </form>
+            <a href="#" class="close"><i class="fa fa-times"></i></a>
+          </div>
+          <div class="warpper">
+            <div class="search-box">
+              <section>
+                <div class="quick-links">
+                  <h3>Quick Links</h3>
+                  <ul>
+                    <li><a href="#">Blank Page</a></li>
+                    <li><a href="#">Blank Page</a></li>
+                    <li><a href="#">Blank Page</a></li>
+                    <li><a href="#">Blank Page</a></li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <div class="settings-dropdown">
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-home"></i><span>Home</span></a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-user-cog"></i><span>Account</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-user"></i><span>About Us</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-sign-in-alt"></i><span>Login</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-sign-out-alt"></i><span>Log Out</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="radio-input">
-          <input
-            type="radio"
-            id="tshirt"
-            name="clothes-filter"
-            value="tshirt"
-          />
-          <label for="tshirt">T-Shirts</label>
+      </nav>
+      <div class="shadow"></div>
+      <div class="hide-filter"></div>
+      <div class="filter">
+        <h1>Filters</h1>
+        <div class="type">
+          <h3>Type <i class="fa fa-angle-down"></i></h3>
+          <div class="dropdow">
+            <ul>
+              <li class="option">All</li>
+              <li class="option">TShirt</li>
+              <li class="option">Hoodies</li>
+              <li class="option">Accessories</li>
+            </ul>
+          </div>
         </div>
-        <div class="radio-input">
-          <input
-            type="radio"
-            id="hoodies"
-            name="clothes-filter"
-            value="hoodies"
-          />
-          <label for="hoodies">Hoodies</label>
+        <div class="price">
+          <h3>Price <i class="fa fa-angle-down"></i></h3>
+          <div class="dropdown">
+            <li class="option">All</li>
+            <li class="option">$0.99-$19.99</li>
+            <li class="option">$19.99-$39.99</li>
+            <li class="option">$39.99-$69.99</li>
+          </div>
         </div>
-        <div class="radio-input">
-          <input
-            type="radio"
-            id="accessories"
-            name="clothes-filter"
-            value="accessories"
-          />
-          <label for="accessories">Accessories</label>
-        </div>
-        <div class="radio-input">
-          <label for="price">Price: </label>
-          <select id="price" name="price">
-            <option value="0.99-9.99">$0.99-$9.99</option>
-            <option value="9.99-19.99">$9.99-$19.99</option>
-            <option value="19.99-29.99">$19.99-$29.99</option>
-            <option value="29.99-49.99">$29.99-$49.99</option>
-            <option value="49.99-69.99">$49.99-$69.99</option>
-            <option value="all">All</option>
-          </select>
-        </div>
-        <button class="submit" type="submit">Search</button>
-      </form>
+      </div>
+      <div class="tile-holder"></div>
     </div>
-    <div class="tile-holder"></div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
     <script src="./shop.js"></script>
+    <script src="./navbar.js"></script>
   </body>
 </html>

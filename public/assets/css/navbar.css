@@ -151,6 +151,9 @@ nav {
 .menu .nav-items ul li:nth-child(9) a.menu-item.hide-item {
   transition: transform 0.5s 0s, opacity 0.2s 0s, color 0.3s 0s;
 }
+.menu .nav-items ul li:nth-child(10) a.menu-item.hide-item {
+  transition: transform 0.5s 0s, opacity 0.2s 0s, color 0.3s 0s;
+}
 
 .menu .nav-items ul li:nth-child(1) a.menu-item {
   transition: transform 0.5s 0s, opacity 0.2s 0s, color 0.3s 0s;
@@ -178,6 +181,9 @@ nav {
 }
 .menu .nav-items ul li:nth-child(9) a.menu-item {
   transition: transform 0.5s 0.35s, opacity 0.2s 0.35s, color 0.3s 0s;
+}
+.menu .nav-items ul li:nth-child(10) a.menu-item {
+  transition: transform 0.5s 0.4s, opacity 0.2s 0.4s, color 0.3s 0s;
 }
 .search-form {
   position: absolute;
