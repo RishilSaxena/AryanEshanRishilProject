@@ -4,7 +4,9 @@ const path = require("path");
 
 module.exports = function(app){
     app.get("/products/:id", function(req, res){
+
         db.Product.find({_id: req.params.id}).populate("reviews").then(function(data){
+
             res.json(data[0]);
         })
     })
@@ -21,9 +23,9 @@ module.exports = function(app){
 
     app.get("/productsByCategory/:category", function(req, res){
         db.Product.find({category: req.params.category}).then(function(data){
-            console.log(req.params.category);
+            // console.log(req.params.category);
             res.json(data);
-            console.log(data);
+            // console.log(data);
         })
     })
     //sending {username: username, password: password}
