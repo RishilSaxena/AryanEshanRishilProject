@@ -1,9 +1,10 @@
 const db = require("../models")
 const bcrypt = require('bcrypt')
+const path = require("path");
 
 module.exports = function(app){
     app.get("/products/:id", function(req, res){
-        db.Product.find({_id: req.params.id}, function(data){
+        db.Product.find({_id: req.params.id}).populate("reviews").then(function(data){
             res.json(data[0]);
         })
     })
@@ -13,8 +14,8 @@ module.exports = function(app){
         })
     })
     app.get("/getcart", function(req, res){
-        db.User.find({_id: document.cookie}).populate("cart").then(function(data){
-            res.json(data);
+        db.User.find({_id: req.cookies.id}).populate("cart").then(function(data){
+            res.json(data[0].cart);
         })
     })
 
@@ -26,27 +27,30 @@ module.exports = function(app){
         })
     })
     //sending {username: username, password: password}
-    // app.post("/login", function(req, res){
-    //     db.User.find({}).then(function(data){
-    //         data.forEach(e => {
-    //             if(req.body.username == e.username){
-    //                 try{
-    //                     if(await bcrypt.compare(req.body.password, e.password)){
-    //                         document.cookie = `id=${e._id}; max-age=60*60*24` // = 86400
-                             
-    //                      } else{
-    //                          res.send("Invalid credentials.")
-    //                      }
-    //                 } catch{
-    //                     console.log("error")
-    //                 }
+    app.post("/login", function(req, res){
+        db.User.find({}).then(function(data){
+            data.forEach(async e => {
+                if(req.body.username == e.username){
+                    try{
+                        const matchingPassword = await bcrypt.compare(req.body.password, e.password)
+                        if(matchingPassword){
+                            res.cookie("id", e._id, {maxAge: 24*60*60});
+                            console.log("You are logged in as " + e.username);
+                            console.log(req.cookies)
+                            res.send("Successfully logged in.")
+
+                         } else{
+                             res.send("Invalid credentials.")
+                             console.log("Invalid credentials");
+                         }
+                    } catch(err){
+                        console.log(err);
+                    }
                     
-    //             } else{
-    //                 res.send("User not found.")
-    //             }
-    //         })
-    //     })
-    // })
+                } 
+            })
+        })
+    })
 
     app.get("/pages", function(req, res){
         res.json([{
@@ -58,5 +62,16 @@ module.exports = function(app){
             path: "./login.html"
         }])
     })
-    
+    app.post("/adduser", async function(req, res){
+        const user = req.body;
+
+        user.password = await bcrypt.hash(user.password, 10);
+        console.log(user.password)
+        db.User.create(user);
+        res.end();
+    })
+    app.get("/logout", function(req, res){
+        res.clearCookie("id");
+        res.sendFile(path.join(__dirname, "../public/logout.html"))
+    })
 }

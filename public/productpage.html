@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
-    <link rel="stylesheet" href="./assets/css/index.css" type="text/css" />
+    <title>Product</title>
     <script
       src="https://kit.fontawesome.com/14edae483b.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="/assets/css/navbar.css" />
+    <link rel="stylesheet" href="/assets/css/productpage.css"/>
   </head>
   <body>
     <div class="cont">
@@ -100,38 +100,36 @@
           </div>
         </div>
       </nav>
-      <div class="shadow"></div>
-      <section class="content">
-        <div class="text">
-          <h1>T-Shirts</h1>
-          <h2>New and Improved Design</h2>
-          <h3>Starting at just $19.99</h3>
-        </div>
-        <img src="./assets/images/merch/tshirt/all-ts.png" alt="tshirts" />
-      </section>
-      <section class="content">
-        <div class="text">
-          <h1>Hoodies</h1>
-          <h2>Comfy Soft Warm</h2>
-          <h3>Starting at just $49.99</h3>
-        </div>
-        <img src="./assets/images/merch/hoodies/all-hoods.png" alt="hoodies" />
-      </section>
-      <section class="content">
-        <div class="text">
-          <h1>Accesorries</h1>
-          <h2>From caps pens</h2>
-          <h3>Starting at just $4.99</h3>
-        </div>
-        <img src="./assets/images/merch/mugs/all-misc.png" alt="caps-cups" />
-      </section>
+    </div>  
+    <div class="shadow"></div>
+    <div class="img-holder">
+      <img class="product-image" />
+    </div>
+    <div class="info">
+      <h1 class="title"></h1>
+      <button class="add-to-cart">Add to cart!</button>
+    </div>
+    <div class="reviews">
+      <form>
+        <input
+          type="text"
+          id="review-title-input"
+          placeholder="Review title..."
+        />
+        <textarea
+          id="review-body-input"
+          placeholder="Leave a review..."
+        ></textarea>
+        <button class="post-review">Post!</button>
+      </form>
+      <div class="current-reviews"></div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script src="./navbar.js"></script>
-
+    <script src="/navbar.js"></script>
+    <script src="/productpage.js"></script>
   </body>
 </html>
