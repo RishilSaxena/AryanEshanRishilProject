@@ -76,4 +76,18 @@ module.exports = function(app){
         res.clearCookie("id");
         res.sendFile(path.join(__dirname, "../public/logout.html"))
     })
+    app.post("/newreview", function(req, res){
+        let username;
+        if(req.cookies.id){
+            username = req.cookies.id
+        } else{
+            username = "Anonymous"
+        }
+        const review = {title: req.body.title, body: req.body.body, star: req.body.star, username: username}
+        db.Review.create(review).then(function(data){
+            return db.Product.findOneAndUpdate({_id: req.body.productid}, {$push:{ notes: data._id}}, {new: true})
+        });
+
+    })
+
 }

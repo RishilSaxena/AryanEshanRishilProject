@@ -10,6 +10,13 @@ const ReviewSchema = new Schema({
     body:{
         type:String,
         required:"Body is required."
+    },
+    star:{
+        type:Number,
+        required:"Star rating is required."
+    },
+    username:{
+        type:String
     }
 })
 
