@@ -16,7 +16,7 @@ module.exports = function(app){
         })
     })
     app.get("/getcart", function(req, res){
-        db.User.find({_id: req.cookies.id}).populate("cart").then(function(data){
+        db.User.find({_id: req.cookies["id"]}).populate("cart").then(function(data){
             res.json(data[0].cart);
         })
     })
@@ -82,15 +82,24 @@ module.exports = function(app){
     })
     app.post("/newreview", function(req, res){
         let username;
-        if(req.cookies.id){
-            username = req.cookies.id
+        if(req.cookies){
+            db.User.find({_id: req.cookies["id"]}).then(function(data){
+
+                username = data[0].username
+                const review = {title: req.body.title, body: req.body.body, star: req.body.star, username: username}
+                console.log(review);
+                db.Review.create(review).then(function(data){
+                    return db.Product.findOneAndUpdate({_id: req.body.productid}, {$push:{ reviews: data._id}}, {new: true})
+                });
+            })
         } else{
             username = "Anonymous"
+            const review = {title: req.body.title, body: req.body.body, star: req.body.star, username: username}
+            db.Review.create(review).then(function(data){
+                return db.Product.findOneAndUpdate({_id: req.body.productid}, {$push:{ reviews: data._id}}, {new: true})
+            });
         }
-        const review = {title: req.body.title, body: req.body.body, star: req.body.star, username: username}
-        db.Review.create(review).then(function(data){
-            return db.Product.findOneAndUpdate({_id: req.body.productid}, {$push:{ reviews: data._id}}, {new: true})
-        });
+
 
     })
 

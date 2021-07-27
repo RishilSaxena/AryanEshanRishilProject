@@ -2,7 +2,9 @@
 
 const url = window.location.href.split("/");
 console.log(url);
-const id = url[url.length - 1];
+const regex = /([^A-z0-9])/g
+let id = url[url.length - 1];
+id = id.replace(regex, "");
 console.log(id);
 
 $.get("/products/" + id).then(function (data) {
@@ -20,11 +22,12 @@ $.get("/products/" + id).then(function (data) {
     reviewContainer.append(
       $("<h2 class='review-user'>" + e.username + "</h2>")
     );
-    reviewContainer.append($("<h2 class='star'></h2>"));
+    const starContainer = $("<h2 class='star'></h2>")
+    reviewContainer.append(starContainer);
     reviewContainer.append($("<h2 class='review-title'>" + e.title + "</h2>"));
     reviewContainer.append($("<p class='review-body'>" + e.body + "</p>"));
     starArr.forEach((star) => {
-      $(".star").append(star);
+     starContainer.append(star);
     });
   });
 });
@@ -32,7 +35,7 @@ $.get("/products/" + id).then(function (data) {
 $(".fa-star").on("click", function () {
   $("form").addClass("active");
 });
-$(".post").on("click", function () {
+$(".post-review").on("click", function () {
   let star = 0;
   if ($("#rate-5").is(":checked")) {
     star = 5;
@@ -66,11 +69,12 @@ $(".post").on("click", function () {
           reviewContainer.append(
             $("<h2 class='review-user'>" + e.username + "</h2>")
           );
-          reviewContainer.append($("<h2 class='star'></h2>"));
+          const starContainer = $("<h2 class='star'></h2>")
+          reviewContainer.append(starContainer);
           reviewContainer.append($("<h2 class='review-title'>" + e.title + "</h2>"));
           reviewContainer.append($("<p class='review-body'>" + e.body + "</p>"));
           starArr.forEach((star) => {
-            $(".star").append(star);
+            starContainer.append(star);
           });
         });
     });

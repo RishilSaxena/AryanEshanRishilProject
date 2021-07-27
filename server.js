@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 
 
-mongoose.connect("mongodb+srv://user:mrdan@cluster0.eud2x.mongodb.net/marketplace?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+mongoose.connect("mongodb+srv://user:mrdan@cluster0.eud2x.mongodb.net/marketplace?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
 
 const app = express();
 app.use(express.urlencoded({extended: true}))
@@ -18,5 +18,5 @@ require("./routes/htmlroutes")(app);
 
 
 app.listen(PORT, function () {
-console.log('App running on port http://localhost:'  + PORT + '/productpage/60fed0a97b67070d60448ff4');
+console.log('App running on port http://localhost:'  + PORT );
 });

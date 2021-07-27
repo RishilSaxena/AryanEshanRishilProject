@@ -41,6 +41,7 @@ $.get("/products").then(function (data) {
 });
 
 function submit() {
+  $(".no-data").empty()
   const category = $(".type .dropdown ul li.option.active")
     .text()
     .toLowerCase();
