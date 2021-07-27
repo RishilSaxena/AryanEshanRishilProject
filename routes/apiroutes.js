@@ -89,7 +89,7 @@ module.exports = function(app){
         }
         const review = {title: req.body.title, body: req.body.body, star: req.body.star, username: username}
         db.Review.create(review).then(function(data){
-            return db.Product.findOneAndUpdate({_id: req.body.productid}, {$push:{ notes: data._id}}, {new: true})
+            return db.Product.findOneAndUpdate({_id: req.body.productid}, {$push:{ reviews: data._id}}, {new: true})
         });
 
     })
