@@ -94,4 +94,5 @@ $(document).ready(function () {
     $(".search-box section ul li").removeClass("show");
     $(".settings-dropdown").removeClass("active");
   }
+
 });

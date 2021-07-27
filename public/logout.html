@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
-    <link rel="stylesheet" href="./assets/css/index.css" type="text/css" />
+    <title>Login</title>
     <script
       src="https://kit.fontawesome.com/14edae483b.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/login.css" />
   </head>
   <body>
     <div class="cont">
@@ -86,7 +86,7 @@
                   >
                 </li>
                 <li>
-                  <a href="/login" class="login"
+                  <a href="/login"
                     ><i class="fa fa-sign-in-alt"></i><span>Login</span>
                   </a>
                 </li>
@@ -101,37 +101,25 @@
         </div>
       </nav>
       <div class="shadow"></div>
-      <section class="content">
-        <div class="text">
-          <h1>T-Shirts</h1>
-          <h2>New and Improved Design</h2>
-          <h3>Starting at just $19.99</h3>
-        </div>
-        <img src="./assets/images/merch/tshirt/all-ts.png" alt="tshirts" />
-      </section>
-      <section class="content">
-        <div class="text">
-          <h1>Hoodies</h1>
-          <h2>Comfy Soft Warm</h2>
-          <h3>Starting at just $49.99</h3>
-        </div>
-        <img src="./assets/images/merch/hoodies/all-hoods.png" alt="hoodies" />
-      </section>
-      <section class="content">
-        <div class="text">
-          <h1>Accesorries</h1>
-          <h2>From caps pens</h2>
-          <h3>Starting at just $4.99</h3>
-        </div>
-        <img src="./assets/images/merch/mugs/all-misc.png" alt="caps-cups" />
-      </section>
     </div>
+
+    <div class="center padding">
+      <h1>Succesfully logged out.</h1>
+      <input type="submit" id="submit" value="Home">
+    </div>
+
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
     <script src="./navbar.js"></script>
-
+    <script>
+        $("#submit").on("click", function(e){
+            e.preventDefault();
+            window.location.href = "/"
+        })
+    </script>
   </body>
+
 </html>

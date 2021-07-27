@@ -7,4 +7,13 @@ module.exports = function(app){
     app.get("/shop", function(req, res){
         res.sendFile(path.join(__dirname, "../public/shop.html"));
     })
+    app.get("/login", function(req, res){
+        res.sendFile(path.join(__dirname, "../public/login.html"));
+    })
+    app.get("/register", function(req, res){
+        res.sendFile(path.join(__dirname, "../public/register.html"));
+    })
+    app.get("/productpage/:id", function(req, res){
+        res.sendFile(path.join(__dirname, "../public/productpage.html"));
+    })
 }
