@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="/assets/css/navbar.css" />
-    <link rel="stylesheet" href="/assets/css/productpage.css"/>
+    <link rel="stylesheet" href="/assets/css/productpage.css" />
   </head>
   <body>
     <div class="cont">
@@ -100,30 +100,51 @@
           </div>
         </div>
       </nav>
-    </div>  
+    </div>
     <div class="shadow"></div>
-    <div class="img-holder">
-      <img class="product-image" />
+    <div class="container">
+      <div class="container2">
+        <div class="img-holder">
+          <img class="product-image" />
+          <div class="current-reviews">
+          </div>
+        </div>
+        <div class="container3">
+          <div class="info">
+            <h1 class="title"></h1>
+            <button class="add-to-cart">Add to cart!</button>
+          </div>
+          <h2 class="h2">Leave a Review:</h2>
+          <div class="star-widget">
+            <div class="holder">
+              <input type="radio" name="rate" id="rate-5" />
+              <label for="rate-5" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-4" />
+              <label for="rate-4" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-3" />
+              <label for="rate-3" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-2" />
+              <label for="rate-2" class="fas fa-star"></label>
+              <input type="radio" name="rate" id="rate-1" />
+              <label for="rate-1" class="fas fa-star"></label>
+            </div>
+
+            <form action="#">
+              <div class="txt_field">
+                <input type="text" id="review-title-input" placeholder=" " />
+                <label>Title</label>
+              </div>
+              <div class="txt_field">
+                <textarea id="review-body-input" placeholder=" "></textarea>
+                <label>Leave your Review</label>
+              </div>
+              <button class="post-review">Post!</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="info">
-      <h1 class="title"></h1>
-      <button class="add-to-cart">Add to cart!</button>
-    </div>
-    <div class="reviews">
-      <form>
-        <input
-          type="text"
-          id="review-title-input"
-          placeholder="Review title..."
-        />
-        <textarea
-          id="review-body-input"
-          placeholder="Leave a review..."
-        ></textarea>
-        <button class="post-review">Post!</button>
-      </form>
-      <div class="current-reviews"></div>
-    </div>
+
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

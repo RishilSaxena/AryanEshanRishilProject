@@ -107,7 +107,7 @@ function appendData(data) {
     <div class="content-box">
         <h3>${data.name}</h3>
         <h2 class="price">$${data.price}</h2>
-        <a href="/products/${data._id}" class="buy" style="background: ${color[0]};">Buy Now</a>
+        <a href="/productpage/${data._id}" class="buy" style="background: ${color[0]};">Buy Now</a>
     </div>
     <div class="anchor"></div>
     </div>`);
