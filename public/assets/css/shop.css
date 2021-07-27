@@ -9,13 +9,14 @@ body {
   border-width: 2px;
   padding: 10px;
   width: 300px;
-  text-align: center;
+  top: -20px;
   position: fixed;
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 .filter h3 {
   cursor: pointer;
+  text-align: center;
 }
 form {
   justify-content: center;
@@ -42,27 +43,72 @@ form {
   color: white;
   cursor: pointer;
 }
+.filter .dropdown {
+  padding: 15px 5px;
+  border-radius: 5px;
+  background: #fff;
+  height: 0px;
+  opacity: 0;
+  transition: height 0.3s, opacity 0.3s, visibility 0.3s;
+  visibility: hidden;
+}
+.filter h3 {
+  z-index: 15;
+}
+.filter .dropdown.active {
+  visibility: visible;
+  height: 180px;
+  opacity: 1;
+}
+.filter .dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.filter .dropdown ul li {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 5px 0;
+  transition: 0.1s;
+}
+.filter .dropdown ul li.active,
+.filter .dropdown ul li:hover {
+  background: #eee;
+  color: royalblue;
+}
 .tile-holder {
-  margin-top: 50px;
+  margin: 70px 0;
   margin-left: 350px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
   grid-auto-rows: minmax(100px, auto);
-  grid-auto-columns:minmax(600px, 600px);
+  grid-auto-columns:minmax(300px, 600px);
 }
-.card:nth-of-type(3n-2) {
+.card:nth-of-type(5n-4) {
   /* grid-row: 1; */
   grid-column: 1;
 }
-.card:nth-of-type(3n-1) {
+.card:nth-of-type(5n-3) {
   /* grid-row: 1; */
   grid-column: 2/2;
 }
-.card:nth-of-type(3n) {
+.card:nth-of-type(5n -2) {
   /* grid-row: 1; */
   grid-column: 3/3;
 }
+.card:nth-of-type(5n -1) {
+  /* grid-row: 1; */
+  grid-column: 4/4;
+}
+.card:nth-of-type(5n) {
+  /* grid-row: 1; */
+  grid-column: 5/5;
+}
+
+
 .card {
   position: relative;
   border-radius: 20px;
@@ -95,11 +141,12 @@ form {
   z-index: 1;
 }
 .card .img-box img {
+  transform: scale(1);
   max-width: 80%;
   transition: 0.5s;
 }
 .card:hover .img-box img {
-  max-width: 50%;
+  transform: scale(0.7) translateY(-20%);
 }
 .card .content-box {
   position: relative;
@@ -109,8 +156,14 @@ form {
   align-items: center;
   flex-direction: column;
   z-index: 1;
+  transition: 0.5s;
+  transform: translateY(0%);
+}
+.card:hover .content-box {
+  transform: translateY(-60%);
 }
 .card .content-box h3 {
+  margin-bottom: 0;
   font-size: 24px;
   color: #fff;
   letter-spacing: 1px;
@@ -127,7 +180,6 @@ form {
   position: relative;
   opacity: 0;
   transition: 0.5s;
-  transform: translateY(-20px);
   padding: 10px 30px;
   margin-top: 15px;
   color: #eee;
@@ -148,4 +200,7 @@ form {
     opacity: 0;
     height: 10px;
     width: 100%;
+}
+.no-data {
+  margin: 50px 0 0 350px;
 }
