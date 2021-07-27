@@ -30,20 +30,21 @@ module.exports = function(app){
     })
     //sending {username: username, password: password}
     app.post("/login", function(req, res){
+        let foundUsername = false;
         db.User.find({}).then(function(data){
             data.forEach(async e => {
                 if(req.body.username == e.username){
+                    foundUsername = true;   
                     try{
                         const matchingPassword = await bcrypt.compare(req.body.password, e.password)
                         if(matchingPassword){
                             res.cookie("id", e._id, {maxAge: 24*60*60});
                             console.log("You are logged in as " + e.username);
                             console.log(req.cookies)
-                            res.send("Successfully logged in.")
+                            return res.end("Successfully logged in.")
 
                          } else{
-                             res.send("Invalid credentials.")
-                             console.log("Invalid credentials");
+                             return res.end("Invalid credentials.")
                          }
                     } catch(err){
                         console.log(err);
@@ -51,6 +52,9 @@ module.exports = function(app){
                     
                 } 
             })
+            if(foundUsername == false){
+                res.end("Invalid credentials.");
+            }
         })
     })
 
@@ -76,4 +80,18 @@ module.exports = function(app){
         res.clearCookie("id");
         res.sendFile(path.join(__dirname, "../public/logout.html"))
     })
+    app.post("/newreview", function(req, res){
+        let username;
+        if(req.cookies.id){
+            username = req.cookies.id
+        } else{
+            username = "Anonymous"
+        }
+        const review = {title: req.body.title, body: req.body.body, star: req.body.star, username: username}
+        db.Review.create(review).then(function(data){
+            return db.Product.findOneAndUpdate({_id: req.body.productid}, {$push:{ reviews: data._id}}, {new: true})
+        });
+
+    })
+
 }
