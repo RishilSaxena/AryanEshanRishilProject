@@ -82,9 +82,10 @@ module.exports = function (app) {
     ]);
   });
   app.post("/adduser", async function (req, res) {
-    const regex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)\/?>/g
+    const regex =
+      /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)\/?>/g;
     let user = req.body;
-    user = user.replaceAll(regex, "")
+    user = user.replaceAll(regex, "");
 
     user.password = await bcrypt.hash(user.password, 10);
     console.log(user.password);
@@ -96,15 +97,16 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/logout.html"));
   });
   app.post("/newreview", function (req, res) {
-    const regex = /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)\/?>/g
+    const regex =
+      /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)\/?>/g;
     let username;
     if (req.cookies["id"]) {
       db.User.find({ _id: req.cookies["id"] }).then(function (data) {
         username = data[0].username;
         let title = req.body.title;
         let body = req.body.body;
-        title = title.replaceAll(regex, "")
-        body = body.replaceAll(regex, "")
+        title = title.replace(regex, "");
+        body = body.replace(regex, "");
         const review = {
           title: title,
           body: body,
@@ -123,8 +125,8 @@ module.exports = function (app) {
       username = "Anonymous";
       let title = req.body.title;
       let body = req.body.body;
-      title = title.replace(regex, "")
-      body = body.replace(regex, "")
+      title = title.replace(regex, "");
+      body = body.replace(regex, "");
       const review = {
         title: title,
         body: body,
@@ -139,5 +141,16 @@ module.exports = function (app) {
         );
       });
     }
+  });
+  app.post("/addtocart", function (req, res) {
+    //req.body = {productid: rrjgiserjkgnksjerg};
+    db.User.findOneAndUpdate(
+      { _id: req.cookies["id"] },
+      { $push: { cart: req.body.productid } },
+      { new: true }
+    ).then(function(data){ 
+        res.end();
+    });
+
   });
 };
