@@ -1,9 +1,10 @@
-if(!document.cookie) {
-  $(".notlog").css("display", "none")
+if (!document.cookie) {
+  $(".notlog").css("display", "none");
+  $(".settings-dropdown.active").css("height", "150px");
 } else {
-  $(".log").css("display", "none")
+  $(".log").css("display", "none");
+  $(".settings-dropdown.active").css("height", "180px");
 }
-
 
 function updateSearchBox() {
   $(".quick-links").empty();
@@ -12,7 +13,9 @@ function updateSearchBox() {
   const searchTerm = $(".nav-search").val();
   if (searchTerm == "") {
     $(".quick-links").empty();
-  $(".quick-links").append(`<h3>Quick Links</h3><ul><li class="show"><a href="/">Home</a></li><li class="show"><a href="/login">Login</a></li><li class="show"><a href="#">Blank Page</a></li><li class="show"><a href="#">Blank Page</a></li></ul>`);
+    $(".quick-links").append(
+      `<h3>Quick Links</h3><ul><li class="show"><a href="/">Home</a></li><li class="show"><a href="/login">Login</a></li><li class="show"><a href="#">Blank Page</a></li><li class="show"><a href="#">Blank Page</a></li></ul>`
+    );
   } else {
     $.get("/pages", function (data) {
       data.forEach((page) => {
@@ -82,16 +85,30 @@ $(document).ready(function () {
     $(".search-box").addClass("active");
     $(".search-box section ul li").addClass("show");
     $(".settings-dropdown").removeClass("active");
+    if (!document.cookie) {
+      $(".settings-dropdown").css("height", "0");
+    } else {
+      $(".settings-dropdown").css("height", "0");
+    }
   });
   $(".close").on("click", function () {
     close();
   });
-  $(".shadow").on("click", function () {
+  $(".shadow").on("click", function (e) {
     close();
   });
   $(".settings").on("click", function () {
+    $(".shadow").addClass("active");
     $(".settings-dropdown").toggleClass("active");
+    if (!document.cookie) {
+      $(".settings-dropdown").css("height", "0px");
+      $(".settings-dropdown.active").css("height", "150px");
+    } else {
+      $(".settings-dropdown").css("height", "0px");
+      $(".settings-dropdown.active").css("height", "180px");
+    }
   });
+  // $(".settings-dropdown.active ~ .settings")
   function close() {
     $(".menu-item").removeClass("hide-item");
     $(".search-form").removeClass("active");
@@ -99,7 +116,12 @@ $(document).ready(function () {
     $(".shadow").removeClass("active");
     $(".search-box").removeClass("active");
     $(".search-box section ul li").removeClass("show");
-    $(".settings-dropdown").removeClass("active");
-  }
 
+    $(".settings-dropdown").removeClass("active");
+    if (!document.cookie) {
+      $(".settings-dropdown").css("height", "0");
+    } else {
+      $(".settings-dropdown").css("height", "0");
+    }
+  }
 });
