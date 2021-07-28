@@ -1,3 +1,22 @@
+
+const url = window.location.href.split("/");
+//ravaerv / shop / all
+console.log(url);
+const regex = /([^A-z0-9])/g
+let id = url[url.length - 1];
+id = id.replace(regex, "");
+console.log(id);
+
+if (id == 'all') {
+  $(".type .all").addClass("active")
+} else if (id == 'accessories') {
+  $(".type .accessories").addClass("active")
+} else if (id == 'tshirts') {
+  $(".type .tshirt").addClass("active")
+} else if (id == 'hoodies') {
+  $(".type .hoodies").addClass("active")
+}
+submit()
 $(".type h3").on("click", function () {
   $(".type h3 i").toggleClass("fa-angle-down").toggleClass("fa-angle-up");
   $(".type .dropdown").toggleClass("active");
@@ -103,7 +122,7 @@ function appendData(data) {
   $(".tile-holder").append(`<div class="card" style="background: ${color[1]};">
     <div class="before" style="background: ${color[0]};"></div>
     <div class="img-box">
-        <img src="${data.imagepath}">
+        <img src="../${data.imagepath}">
     </div>
     <div class="content-box">
         <h3>${data.name}</h3>
@@ -113,3 +132,4 @@ function appendData(data) {
     <div class="anchor"></div>
     </div>`);
 }
+// .././assets

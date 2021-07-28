@@ -267,7 +267,7 @@ body.no-scroll {
   position: absolute;
   top: 54px;
   right: -50px;
-  background: #333;
+  background: #1f1f1f;
   backdrop-filter: saturate(180%) blur(20px);
   border: 0.5px solid #757575;
   height: 0px;
@@ -277,7 +277,6 @@ body.no-scroll {
 .settings-dropdown.active {
   visibility: visible;
   opacity: 1;
-  height: 230px;
 }
 .settings-dropdown::before {
   position: absolute;
@@ -286,7 +285,7 @@ body.no-scroll {
   content: '';
   width: 10px;
   height: 10px;
-  background: #333;
+  background: #1f1f1f;
   backdrop-filter: saturate(180%) blur(20px);
   border-top: 1px solid #757575;
   border-right: 1px solid #757575;
@@ -331,6 +330,7 @@ body.no-scroll {
   top: 12px;
 }
 .settings-dropdown ul li a {
+  display: block;
   transition: 0.3s;
   text-decoration: none;
   color: #eee;
@@ -341,3 +341,6 @@ body.no-scroll {
 .settings-dropdown ul li:hover a {
   color: #fff;
 } 
+.quick-links ul li a {
+  display: block;
+}

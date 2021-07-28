@@ -6,9 +6,14 @@ const regex = /([^A-z0-9])/g
 let id = url[url.length - 1];
 id = id.replace(regex, "");
 console.log(id);
-
+if (!document.cookie) {
+  $(".add-to-cart").attr("disabled", "disabled")
+  $(".add-to-cart").text("Login to add to cart!")
+}
 $.get("/products/" + id).then(function (data) {
+  const price = data.price.toString().split(".")
   $(".title").text(data.name);
+  $(".price").text("$" + price[0]).append("<small>" + price[1] + "</small>");
   $(".product-image").attr("src", "../" + data.imagepath);
   data.reviews.forEach((e) => {
     const reviewContainer = $(".current-reviews");
