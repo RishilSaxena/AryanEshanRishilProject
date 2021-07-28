@@ -8,7 +8,9 @@ id = id.replace(regex, "");
 console.log(id);
 
 $.get("/products/" + id).then(function (data) {
+  const price = data.price.toString().split(".")
   $(".title").text(data.name);
+  $(".price").text("$" + price[0]).append("<small>" + price[1] + "</small>");
   $(".product-image").attr("src", "../" + data.imagepath);
   data.reviews.forEach((e) => {
     const reviewContainer = $(".current-reviews");

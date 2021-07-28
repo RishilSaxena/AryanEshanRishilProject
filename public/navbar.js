@@ -1,3 +1,10 @@
+if(!document.cookie) {
+  $(".notlog").css("display", "none")
+} else {
+  $(".log").css("display", "none")
+}
+
+
 function updateSearchBox() {
   $(".quick-links").empty();
   $(".quick-links").append("<h3>Search Results:</h3>");

@@ -277,7 +277,7 @@ body.no-scroll {
 .settings-dropdown.active {
   visibility: visible;
   opacity: 1;
-  height: 230px;
+  height: 180px;
 }
 .settings-dropdown::before {
   position: absolute;
@@ -331,6 +331,7 @@ body.no-scroll {
   top: 12px;
 }
 .settings-dropdown ul li a {
+  display: block;
   transition: 0.3s;
   text-decoration: none;
   color: #eee;
@@ -341,3 +342,6 @@ body.no-scroll {
 .settings-dropdown ul li:hover a {
   color: #fff;
 } 
+.quick-links ul li a {
+  display: block;
+}

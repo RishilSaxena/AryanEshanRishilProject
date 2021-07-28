@@ -46,7 +46,7 @@
   margin: 35px 0;
   transition: 0.5s;
 }
-.add-to-cart:hover {
+.add-to-cart:not(:disabled):hover {
   border-color: #2691d9;
 }
 .review,
@@ -169,4 +169,19 @@ resize: none;
 .current-reviews .review-body {
   padding: 0 0 10px 0;
   border-bottom: 1px solid #333;
+}
+.price {
+  font-weight: 300;
+  text-align: center;
+  color: #444;
+}
+.price small {
+  font-size: 10px;
+  position: relative;
+  bottom: 5px;
+}
+
+.add-to-cart:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
