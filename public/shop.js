@@ -9,12 +9,16 @@ console.log(id);
 
 if (id == 'all') {
   $(".type .all").addClass("active")
+  submit()
 } else if (id == 'accessories') {
   $(".type .accessories").addClass("active")
+  submit()
 } else if (id == 'tshirts') {
   $(".type .tshirt").addClass("active")
+  submit()
 } else if (id == 'hoodies') {
   $(".type .hoodies").addClass("active")
+  submit()
 }
 submit()
 $(".type h3").on("click", function () {

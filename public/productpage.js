@@ -36,10 +36,15 @@ $.get("/products/" + id).then(function (data) {
     });
   });
 });
+$(".add-to-cart").on("click", function() {
+  $.post("/addtocart", {productid: id})
+  console.log("Adding" + id)
+})
 
 $(".fa-star").on("click", function () {
   $("form").addClass("active");
 });
+
 $(".post-review").on("click", function () {
   let star = 0;
   if ($("#rate-5").is(":checked")) {
