@@ -1,3 +1,11 @@
+if (document.cookie) {
+    $(".center").empty()
+    $(".center").append(`<div class="center padding">
+    <h1>You are already logged in.</h1>
+    <input type="submit" id="home" value="Home">
+  </div>`)
+}
+
 $("#submit").on("click", function(e){
     e.preventDefault();
     $.post("/login", {username: $("#username").val(), password: $("#password").val()}).then(function(data){
@@ -9,4 +17,7 @@ $("#submit").on("click", function(e){
         }
     });
 
+})
+$("#home").on("click", function() {
+    window.location.href = "/"
 })
