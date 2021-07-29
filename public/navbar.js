@@ -98,7 +98,7 @@ $(document).ready(function () {
     close();
   });
   $(".settings").on("click", function () {
-    $(".shadow").addClass("active");
+    $(".shadow").toggleClass("active");
     $(".settings-dropdown").toggleClass("active");
     if (!document.cookie) {
       $(".settings-dropdown").css("height", "0px");

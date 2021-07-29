@@ -51,6 +51,11 @@ $(".price .dropdown ul li.option").on("click", function () {
 $(".dropdown ul li.option").on("click", function () {
   submit();
 });
+
+$(document).on("click", ".card", function () {
+  window.location.href = "/productpage/" + $(this).attr("data-id")
+})
+
 const complementary = {
   green: ["rgb(0,255,114)", "#00b752"],
   black: ["#555", "#222"],
@@ -123,7 +128,7 @@ function appendData(data) {
   } else if (data.color == "white") {
     color = complementary.white;
   }
-  $(".tile-holder").append(`<div class="card" style="background: ${color[1]};">
+  $(".tile-holder").append(`<div class="card" style="background: ${color[1]};" data-id="${data._id}">
     <div class="before" style="background: ${color[0]};"></div>
     <div class="img-box">
         <img src="../${data.imagepath}">

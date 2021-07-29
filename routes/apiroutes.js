@@ -85,7 +85,7 @@ module.exports = function (app) {
     const regex =
       /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)\/?>/g;
     let user = req.body;
-    user = user.replaceAll(regex, "");
+    user = user.username.replace(regex, "");
 
     user.password = await bcrypt.hash(user.password, 10);
     console.log(user.password);
@@ -148,9 +148,8 @@ module.exports = function (app) {
       { _id: req.cookies["id"] },
       { $push: { cart: req.body.productid } },
       { new: true }
-    ).then(function(data){ 
-        res.end();
+    ).then(function (data) {
+      res.end();
     });
-
   });
 };
