@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(253,250,245);
+}
+.container{
+    text-align:center;
+}
+.container img{
+    width:50%;
+}
