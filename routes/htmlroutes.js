@@ -19,7 +19,12 @@ module.exports = function(app){
     app.get("/aboutus", function(req, res){
         res.sendFile(path.join(__dirname, "../public/aboutus.html"))
     })
+
     app.get("/cart", function(req, res){
         res.sendFile(path.join(__dirname, "../public/cart.html"))
+    })
+
+    app.get("*", function(req, res){
+        res.sendFile(path.join(__dirname, "../public/404.html"))
     })
 }

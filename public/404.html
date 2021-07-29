@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404</title>
+    <script
+      src="https://kit.fontawesome.com/14edae483b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
+    <link rel="stylesheet" href="./assets/css/404.css" />
+  </head>
+  <body>
+    <div class="cont">
+      <nav>
+        <div class="menu">
+          <div class="nav-items">
+            <ul>
+              <li>
+                <a href="/" class="menu-item"><i class="fa fa-code"></i></a>
+              </li>
+              <li><a href="/shop/all" class="menu-item">All</a></li>
+              <li><a href="/shop/tshirts" class="menu-item">T-Shirts</a></li>
+              <li><a href="/shop/hoodies" class="menu-item">Hoodies</a></li>
+              <li><a href="/shop/accessories" class="menu-item">Mugs</a></li>
+              <li><a href="/shop/accessories" class="menu-item">Caps</a></li>
+              <li>
+                <a href="#" id="search" class="menu-item"
+                  ><i class="fa fa-search"></i
+                ></a>
+              </li>
+              <li class="notlog">
+                <a href="/cart" class="menu-item"
+                  ><i class="fa fa-shopping-cart"></i
+                ></a>
+                <div class="dropdown"></div>
+              </li>
+              <li>
+                <a href="#" class="menu-item settings"
+                  ><i class="fa fa-cog"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="search-form">
+            <form>
+              <input
+                class="nav-search"
+                type="text"
+                name=""
+                placeholder="Search"
+                oninput="updateSearchBox()"
+              />
+            </form>
+            <a href="#" class="close"><i class="fa fa-times"></i></a>
+          </div>
+          <div class="warpper">
+            <div class="search-box">
+              <section>
+                <div class="quick-links">
+                  <h3>Quick Links</h3>
+                  <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/aboutus">About Us</a></li>
+                    <li><a href="/shop/all">Shop</a></li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+            <div class="settings-dropdown">
+              <ul>
+                <li>
+                  <a href="/"><i class="fa fa-home"></i><span>Home</span></a>
+                </li>
+                <li class="notlog">
+                  <a href="#"
+                    ><i class="fa fa-user-cog"></i><span>Account</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/aboutus"
+                    ><i class="fa fa-user"></i><span>About Us</span></a
+                  >
+                </li>
+                <li class="log">
+                  <a href="/login"
+                    ><i class="fa fa-sign-in-alt"></i><span>Login</span>
+                  </a>
+                </li>
+                <li class="notlog">
+                  <a href="/logout"
+                    ><i class="fa fa-sign-out-alt"></i><span>Log Out</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="shadow"></div>
+    </div>
+    
+
+    <div class="container">
+        <img
+        class="404-image"
+        src="./assets/images/404image.png"
+  
+      />
+      <h1 class="404-text">Page not found.</h1>
+    </div>
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./navbar.js"></script>
+  </body>
+</html>
