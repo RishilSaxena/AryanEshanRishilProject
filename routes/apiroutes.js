@@ -152,4 +152,10 @@ module.exports = function (app) {
       res.end();
     });
   });
+  app.post("/removefromcart", function (req, res) {
+    //req.body = {productid: rrjgiserjkgnksjerg};
+    db.User.findOne({ _id: req.cookies["id"] }).then(function (data) {
+      //get user
+    });
+  });
 };

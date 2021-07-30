@@ -344,3 +344,20 @@ body.no-scroll {
 .quick-links ul li a {
   display: block;
 }
+
+@media only screen and (max-width: 1120px) {
+  .menu {
+    width: 100%;
+  }
+  .menu .nav-items ul {
+    justify-content: space-evenly;
+  }
+  .settings-dropdown {
+    position: absolute;
+    right: px;
+    top: 45px;
+  }
+  .settings-dropdown::before {
+    display: none;
+  }
+}

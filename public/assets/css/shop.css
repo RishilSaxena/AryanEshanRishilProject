@@ -205,3 +205,52 @@ form {
 .no-data {
   margin: 50px 0 0 350px;
 }
+@media only screen and (max-width: 1232px) {
+  .tile-holder {
+    margin: 40px 0;
+    margin-left: 340px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    grid-auto-rows: minmax(100px, auto);
+    grid-auto-columns:minmax(300px, 600px);
+  }
+  .card:nth-of-type(4n-3) {
+    /* grid-row: 1; */
+    grid-column: 1/1;
+  }
+  .card:nth-of-type(4n -2) {
+    /* grid-row: 1; */
+    grid-column: 2/2;
+  }
+  .card:nth-of-type(4n -1) {
+    /* grid-row: 1; */
+    grid-column: 3/3;
+  }
+  .card:nth-of-type(4n) {
+    /* grid-row: 1; */
+    grid-column: 4/4;
+  }
+}
+@media only screen and (max-width: 1029px) {
+  .tile-holder {
+    margin: 20px 0;
+    margin-left: 340px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    grid-auto-columns:minmax(300px, 600px);
+  }
+
+  .card:nth-of-type(3n -2) {
+    /* grid-row: 1; */
+    grid-column: 1/1;
+  }
+  .card:nth-of-type(3n -1) {
+    /* grid-row: 1; */
+    grid-column: 2/2;
+  }
+  .card:nth-of-type(3n) {
+    /* grid-row: 1; */
+    grid-column: 3/3;
+  }
+}
