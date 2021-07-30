@@ -154,8 +154,24 @@ module.exports = function (app) {
   });
   app.post("/removefromcart", function (req, res) {
     //req.body = {productid: rrjgiserjkgnksjerg};
-    db.User.findOne({ _id: req.cookies["id"] }).then(function (data) {
-      //get user
-    });
+    console.log(req.body);
+    db.User.findOneAndUpdate({ _id: req.cookies["id"] }, {$pull: {cart: req.body.productid}}, {"new": true}).then(function(data){ 
+      res.end();
+    })
+    //{$pull: {cart: {$in: [req.body.productid]}}}, {new: true}
   });
+  app.post("/updateusername", function(req, res){
+    //req.body = {updatedUsername, password}
+    db.User.findOne({_id: req.cookies["id"]}).then(async function(data){
+        const passwordsMatch = await bcrypt.compare(data.password, req.password)
+        if(passwordsMatch){
+          data.update({username: req.body.updatedUsername})
+        } else{
+          res.send("Incorrect password.")
+        }
+
+  
+    })
+
+  })
 };

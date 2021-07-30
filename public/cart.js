@@ -10,7 +10,7 @@ if (document.cookie) {
               <h2 class="title">${e.name}<span class="color"> - ${e.color}</span></h2>
               <h3>$${price[0]}<small>${price[1]}</small></h3>
             </div>
-            <div class="remove">Remove From Cart</div>
+            <div class="remove" data-id=${e._id}>Remove From Cart</div>
           </div> `)
     });
     $(".subtotal").text('$'+sub.toFixed(2))
@@ -18,5 +18,9 @@ if (document.cookie) {
 }
  else {
   alert("You must be logged in to access cart")
-  window.location.href = "/login";
+  window.location.href = "https://youtu.be/dQw4w9WgXcQ";
 }
+
+$(document).on("click", ".remove", function(){
+  $.post("/removefromcart", {productid: $(this).attr("data-id")})
+})
