@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      href="https://cdn.icon-icons.com/icons2/1369/PNG/512/-shopping-cart_90604.png"
-      type="image/x-icon"
-    />
-    <title>Cart</title>
+    <meta charset="utf-8" />
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/css/account.css" />
+    <link rel="stylesheet" href="./assets/css/navbar.css" />
     <script
       src="https://kit.fontawesome.com/14edae483b.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./assets/css/navbar.css" />
-    <link rel="stylesheet" href="./assets/css/cart.css" />
   </head>
   <body>
     <div class="cont">
@@ -107,28 +101,40 @@
       </nav>
       <div class="shadow"></div>
     </div>
-    <div class="container">
-      <div class="container2">
-        <div class="container3">
-          <h1>Your Cart <span class="subtotal-holder">Subtotal: <span class="subtotal">$74.97</span></span></h1>
-          <div class="cart-item">
-            <img src="./assets/images/merch/tshirt/css-white.png" alt="" />
-            <div class="text">
-              <h2 class="title">CSS TShirt<span class="color"> - White</span></h2>
-              <h3>$24<small>99</small></h3>
+    <div class="center">
+      <div class="sidebar">
+        <i class="fas fa-user-edit"></i>
+        <i class="fas fa-user-times"></i>
+      </div>
+      <div class="form-cont">
+        <h1>Edit Your Profile</h1>
+        <section class="update-user">
+          <div class="inps">
+            <div class="txt_field">
+              <input type="text" required id="new-username" />
+              <label>New Username</label>
             </div>
-            <div class="remove">Remove From Cart</div>
           </div>
-        </div>
+          <input type="submit" id="update-user-btn" value="Update Username" />
+        </section>
+        <section class="update-pass">
+          <div class="inps">
+            <div class="txt_field">
+              <input type="password" required id="new-pass" />
+              <label>New Password</label>
+            </div>
+          </div>
+          <input type="submit" value="Update Password" id="update-pass-btn" />
+        </section>
+        <div class="signup_link"></div>
       </div>
     </div>
-
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
     <script src="./navbar.js"></script>
-    <script src="./cart.js"></script>
+    <script src="./account.js"></script>
   </body>
 </html>
