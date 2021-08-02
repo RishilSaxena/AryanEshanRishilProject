@@ -82,11 +82,14 @@ module.exports = function (app) {
     ]);
   });
   app.post("/adduser", async function (req, res) {
-    const regex =
-      /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)\/?>/g;
     let user = req.body;
-    user = user.username.replace(regex, "");
-
+    db.User.find({}).then(function (data) {
+      data.forEach(async (e) => {
+        if (e.username == user.username) {
+          return res.send("Username Already Taken");
+        }
+      });
+    });
     user.password = await bcrypt.hash(user.password, 10);
     console.log(user.password);
     db.User.create(user);
@@ -150,6 +153,28 @@ module.exports = function (app) {
       { new: true }
     ).then(function (data) {
       res.end();
+    });
+  });
+  app.post("/removefromcart", function (req, res) {
+    //req.body = {productid: rrjgiserjkgnksjerg};
+    db.User.findOneAndUpdate(
+      { _id: req.cookies["id"] },
+      { $pull: { cart: req.body.productid } },
+      { new: true }
+    ).then(function (data) {
+      res.end();
+    });
+  });
+  app.post("/updateusername", function (req, res) {
+    //req.body = {productid: rrjgiserjkgnksjerg};
+    db.User.findOne({ _id: req.cookies["id"] }).then(function (data) {
+      //get user
+    });
+  });
+  app.post("/updatepassword", function (req, res) {
+    //req.body = {productid: rrjgiserjkgnksjerg};
+    db.User.findOne({ _id: req.cookies["id"] }).then(function (data) {
+      //get user
     });
   });
   app.post("/removefromcart", function (req, res) {

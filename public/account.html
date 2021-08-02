@@ -10,6 +10,11 @@
       src="https://kit.fontawesome.com/14edae483b.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/icon.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <div class="cont">
@@ -75,7 +80,7 @@
                   <a href="/"><i class="fa fa-home"></i><span>Home</span></a>
                 </li>
                 <li class="notlog">
-                  <a href="#"
+                  <a href="/account"
                     ><i class="fa fa-user-cog"></i><span>Account</span>
                   </a>
                 </li>
@@ -109,19 +114,33 @@
       <div class="form-cont">
         <h1>Edit Your Profile</h1>
         <section class="update-user">
+          <h1>Update Username</h1>
           <div class="inps">
             <div class="txt_field">
               <input type="text" required id="new-username" />
               <label>New Username</label>
             </div>
+            <div class="txt_field user-confirm">
+              <input type="password" required id="confirm-pass" />
+              <label>Confirm Password</label>
+            </div>
           </div>
           <input type="submit" id="update-user-btn" value="Update Username" />
         </section>
         <section class="update-pass">
+          <h1>Update Password</h1>
           <div class="inps">
             <div class="txt_field">
               <input type="password" required id="new-pass" />
               <label>New Password</label>
+            </div>
+            <div class="txt_field pass-confirm">
+              <input type="password" required id="confirm-new-pass" />
+              <label>Confirm New Password</label>
+            </div>
+            <div class="txt_field pass-confirm">
+              <input type="password" required id="old-pass" />
+              <label>Confirm Old Password</label>
             </div>
           </div>
           <input type="submit" value="Update Password" id="update-pass-btn" />

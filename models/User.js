@@ -12,7 +12,7 @@ const UserSchema = new Schema({
         required:"Username is required."
     },
     cart: [{
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: "Product"
     }]
 })

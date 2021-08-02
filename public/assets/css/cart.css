@@ -15,6 +15,7 @@ body {
   width: 800px;
   overflow-y: hidden;
   border-radius: 20px;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
 .container3 {
   height: 600px;
@@ -40,10 +41,11 @@ body {
 .container3 .cart-item .text {
   display: flex;
   flex-direction: column;
+  width: 35%;
 }
 .container3 .cart-item .text .color {
   font-weight: 500;
-  font-size: 30px;
+  font-size: 22px;
 }
 .container3 .cart-item h2,
 .container3 .cart-item h3,
@@ -52,7 +54,8 @@ body {
   padding: 5px;
 }
 .container3 .cart-item h2 {
-  font-size: 38px;
+  font-size: 28px;
+  text-align: center;
 }
 .container3 .cart-item h3 {
   text-align: center;
@@ -71,7 +74,7 @@ body {
   font-weight: 600;
   font-size: 16px;
   color: white;
-  width: 150px;
+  width: 165px;
   height: 35px;
   background: #f55;
   margin: 15px;
