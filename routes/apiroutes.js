@@ -157,30 +157,57 @@ module.exports = function (app) {
   });
   app.post("/removefromcart", function (req, res) {
     //req.body = {productid: rrjgiserjkgnksjerg};
-    db.User.findOneAndUpdate(
-      { _id: req.cookies["id"] },
-      { $pull: { cart: req.body.productid } },
-      { new: true }
-    ).then(function (data) {
+    console.log(req.body);
+    db.User.findOneAndUpdate({ _id: req.cookies["id"] }, {$pull: {cart: req.body.productid}}, {"new": true}).then(function(data){ 
       res.end();
-    });
+    })
+    //{$pull: {cart: {$in: [req.body.productid]}}}, {new: true}
+
   });
-  app.post("/updateusername", function (req, res) {
-    //req.body = {productid: rrjgiserjkgnksjerg};
-    db.User.findOne({ _id: req.cookies["id"] }).then(function (data) {
-      //get user
-    });
-  });
-  app.post("/updatepassword", function (req, res) {
-    //req.body = {productid: rrjgiserjkgnksjerg};
-    db.User.findOne({ _id: req.cookies["id"] }).then(function (data) {
-      //get user
-    });
-  });
-  app.post("/removefromcart", function (req, res) {
-    //req.body = {productid: rrjgiserjkgnksjerg};
-    db.User.findOne({ _id: req.cookies["id"] }).then(function (data) {
-      //get user
-    });
-  });
+  app.post("/updateusername", function(req, res){
+    //req.body = {updatedUsername, password}
+    db.User.findOne({_id: req.cookies["id"]}).then(async function(data){
+        const passwordsMatch = await bcrypt.compare(data.password, req.password)
+        if(passwordsMatch){
+          db.User.findOneAndUpdate({_id: req.cookies["id"]}, {username: req.body.updatedUsername}).then(function(data){
+               res.send("Username changed successfully.")
+          })
+        } else{
+          res.send("Incorrect password.")
+        }
+
+  
+    })
+
+  })
+  app.post("/updatepassword", function(req,res){
+    // req.body = {newPassword, oldPassword}
+    db.User.findOne({_id: req.cookies["id"]}).then(async function(data){
+      const passwordsMatch = await bcrypt.compare(data.password, req.oldPassword);
+      if(passwordsMatch){
+        db.User.findOneAndUpdate({_id: req.cookies["id"]}, {password: req.body.newPassword}).then(function(data){
+           res.send("Password changed successfully.")
+        })
+
+      } else{
+        res.send("Incorrect password.")
+      }
+    })
+  })
+  app.post("/deleteaccount", function(req,res){
+    // req.body = {password}
+    db.User.findOne({_id: req.cookies["id"]}).then(async function(data){
+      const passwordsMatch = await bcrypt.compare(data.password, req.password);
+      if(passwordsMatch){
+        db.User.findOneAndRemove({_id: req.cookies["id"]}).then(function(data){
+          res.clearCookie("id")
+          res.send("Account deleted.")
+        })
+      } else{
+        res.send("Incorrect password.")
+      }
+    })
+  })
 };
+
+
