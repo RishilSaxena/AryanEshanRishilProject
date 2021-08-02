@@ -82,11 +82,14 @@ module.exports = function (app) {
     ]);
   });
   app.post("/adduser", async function (req, res) {
-    const regex =
-      /<\/?\w+((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[^'">\s]+))?)+\s*|\s*)\/?>/g;
     let user = req.body;
-    user = user.username.replace(regex, "");
-
+    db.User.find({}).then(function (data) {
+      data.forEach(async (e) => {
+        if (e.username == user.username) {
+          return res.send("Username Already Taken");
+        }
+      });
+    });
     user.password = await bcrypt.hash(user.password, 10);
     console.log(user.password);
     db.User.create(user);
@@ -159,14 +162,16 @@ module.exports = function (app) {
       res.end();
     })
     //{$pull: {cart: {$in: [req.body.productid]}}}, {new: true}
+
   });
   app.post("/updateusername", function(req, res){
     //req.body = {updatedUsername, password}
     db.User.findOne({_id: req.cookies["id"]}).then(async function(data){
         const passwordsMatch = await bcrypt.compare(data.password, req.password)
         if(passwordsMatch){
-          db.User.findOneAndupdate({username: req.body.updatedUsername})
-          res.send("Password changed succesfully.")
+          db.User.findOneAndUpdate({_id: req.cookies["id"]}, {username: req.body.updatedUsername}).then(function(data){
+               res.send("Username changed successfully.")
+          })
         } else{
           res.send("Incorrect password.")
         }
@@ -180,8 +185,10 @@ module.exports = function (app) {
     db.User.findOne({_id: req.cookies["id"]}).then(async function(data){
       const passwordsMatch = await bcrypt.compare(data.password, req.oldPassword);
       if(passwordsMatch){
-        db.User.findOneAndUpdate({password: req.body.newPassword});
-        res.send("Password changed succesfully.")
+        db.User.findOneAndUpdate({_id: req.cookies["id"]}, {password: req.body.newPassword}).then(function(data){
+           res.send("Password changed successfully.")
+        })
+
       } else{
         res.send("Incorrect password.")
       }
@@ -192,9 +199,10 @@ module.exports = function (app) {
     db.User.findOne({_id: req.cookies["id"]}).then(async function(data){
       const passwordsMatch = await bcrypt.compare(data.password, req.password);
       if(passwordsMatch){
-        db.User.findOneAndDelete({_id: req.cookies["id"]})
-        res.clearCookie("id")
-        res.send("Account deleted.")
+        db.User.findOneAndRemove({_id: req.cookies["id"]}).then(function(data){
+          res.clearCookie("id")
+          res.send("Account deleted.")
+        })
       } else{
         res.send("Incorrect password.")
       }

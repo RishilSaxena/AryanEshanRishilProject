@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400&display=swap");
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: "Lexend", sans-serif;
   margin: 0;
@@ -299,7 +302,7 @@ body.no-scroll {
 .settings-dropdown ul li {
   opacity: 0;
   transform: translateX(10%);
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
   line-height: 40px;
   padding: 0 0 0 40px;
@@ -330,6 +333,7 @@ body.no-scroll {
   top: 12px;
 }
 .settings-dropdown ul li a {
+  text-align: start;
   display: block;
   transition: 0.3s;
   text-decoration: none;

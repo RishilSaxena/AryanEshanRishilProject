@@ -13,7 +13,7 @@ $("#submit").on("click", function(e){
             window.location.href = "/"
             console.log("Succesfully logged in.")
         } else{
-            alert("Invalid credentials.");
+            alert(data);
         }
     });
 
