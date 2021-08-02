@@ -194,7 +194,7 @@ module.exports = function (app) {
     // req.body = {newPassword, oldPassword}
     console.log(req.body);
     db.User.findOne({ _id: req.cookies["id"] }).then(async function (data) {
-      const passwordsMatch = await bcrypt.compare(  
+      const passwordsMatch = await bcrypt.compare(
         req.body.oldPassword,
         data.password
       );
@@ -216,8 +216,8 @@ module.exports = function (app) {
 
     db.User.findOne({ _id: req.cookies["id"] }).then(async function (data) {
       const passwordsMatch = await bcrypt.compare(
-        data.password,
-        req.body.password
+        req.body.password,
+        data.password
       );
       if (passwordsMatch) {
         db.User.findOneAndRemove({ _id: req.cookies["id"] }).then(function (
