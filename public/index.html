@@ -5,12 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/navbar.css" />
     <link rel="stylesheet" href="./assets/css/index.css" type="text/css" />
     <script
       src="https://kit.fontawesome.com/14edae483b.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/icon.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <div class="cont">
@@ -76,7 +85,7 @@
                   <a href="/"><i class="fa fa-home"></i><span>Home</span></a>
                 </li>
                 <li class="notlog">
-                  <a href="#"
+                  <a href="/account"
                     ><i class="fa fa-user-cog"></i><span>Account</span>
                   </a>
                 </li>
@@ -101,36 +110,239 @@
         </div>
       </nav>
       <div class="shadow"></div>
-      <section class="content">
+      <section class="content" onclick="window.location.href = '/shop/tshirts'">
         <div class="text">
           <h1>T-Shirts</h1>
-          <h2>New and Improved Design</h2>
+          <h2>Code Better</h2>
           <h3>Starting at just $19.99</h3>
         </div>
         <img src="./assets/images/merch/tshirt/all-ts.png" alt="tshirts" />
       </section>
-      <section class="content">
+      <section class="content" onclick="window.location.href = '/shop/hoodies'">
         <div class="text">
           <h1>Hoodies</h1>
-          <h2>Comfy Soft Warm</h2>
+          <h2>Code in the Cold</h2>
           <h3>Starting at just $49.99</h3>
         </div>
         <img src="./assets/images/merch/hoodies/all-hoods.png" alt="hoodies" />
       </section>
-      <section class="content">
+
+      <section
+        class="content"
+        onclick="window.location.href = '/shop/accessories'"
+      >
         <div class="text">
-          <h1>Accesorries</h1>
-          <h2>From caps pens</h2>
-          <h3>Starting at just $4.99</h3>
+          <h1>New Embroidered Caps</h1>
+          <h2>Touch Grass</h2>
+          <h3>Starting at just $24.99</h3>
         </div>
-        <img src="./assets/images/merch/mugs/all-misc.png" alt="caps-cups" />
+        <img
+          src="./assets/images/merch/caps/black.png"
+          alt="black-caps"
+          style="
+            /* background-color: #ffffff55; */
+            border-radius: 20px;
+            max-height: 550px;
+            margin: 10px;
+            padding: 20px;
+          "
+        />
+        <img
+          src="./assets/images/merch/caps/white.png"
+          alt="black-caps"
+          style="
+            /* background-color: #ffffff55; */
+            border-radius: 20px;
+            max-height: 550px;
+            margin: 10px;
+            padding: 20px;
+          "
+        />
       </section>
-      <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"
-      ></script>
-      <script src="./navbar.js"></script>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="rgb(49, 194, 97)"
+          fill-opacity="1"
+          d="M0,128L48,117.3C96,107,192,85,288,117.3C384,149,480,235,576,250.7C672,267,768,213,864,197.3C960,181,1056,203,1152,213.3C1248,224,1344,224,1392,224L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+        ></path>
+      </svg>
+
+      <!-- DISCLAIMER NOT MY CODE... WATCHED TUTORIAL:  https://www.youtube.com/watch?v=mi1-o9hjbsk -->
+
+      <section>
+        <div class="container">
+          <div class="section-title">
+            <h2>Reviews</h2>
+            <span class="section-separator"></span>
+            <p>Hear From people Like You</p>
+          </div>
+        </div>
+        <div class="testimonials-carousel">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <!--second--->
+              <div class="swiper-slide">
+                <div class="testi-item">
+                  <div class="testimonials-text-before">
+                    <i class="fa fa-quote-left"></i>
+                  </div>
+                  <div class="testimonials-text">
+                    <div class="listing-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star" style="color: #0f9000"></i>
+                    </div>
+                    <h2 class="rev-title">Mr. Dan Approves</h2>
+                    <p>
+                      "I Approve"
+                      <br />
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Architecto reprehenderit cumque ipsam eum itaque, sequi
+                      porro quibusdam hic numquam fuga laborum laudantium? Ad
+                      magni porro sapiente veniam recusandae delectus nisi.
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Explicabo, dolorum nemo maiores blanditiis nobis tempore,
+                      porro provident quaerat cum itaque rem neque.
+                    </p>
+                    <div class="testimonials-avatar">
+                      <h3>Mr. Dan</h3>
+                      <h4>Teacher</h4>
+                    </div>
+                  </div>
+                  <div class="testimonials-text-after">
+                    <i class="fa fa-quote-right"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="testi-item">
+                  <div class="testimonials-text-before">
+                    <i class="fa fa-quote-left"></i>
+                  </div>
+                  <div class="testimonials-text">
+                    <div class="listing-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                    <h2 class="rev-title">I did Backend</h2>
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Architecto reprehenderit cumque ipsam eum itaque, sequi
+                      porro quibusdam hic numquam fuga laborum laudantium? Ad
+                      magni porro sapiente veniam recusandae delectus nisi.
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Explicabo, dolorum nemo maiores blanditiis nobis tempore,
+                      porro provident quaerat cum itaque rem neque quod
+                      similique. Maiores ipsa accusamus eum quae exercitationem.
+                    </p>
+                    <div class="testimonials-avatar">
+                      <h3>Rishil</h3>
+                      <h4>Back End Dev</h4>
+                    </div>
+                  </div>
+                  <div class="testimonials-text-after">
+                    <i class="fa fa-quote-right"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="testi-item">
+                  <div class="testimonials-text-before">
+                    <i class="fa fa-quote-left"></i>
+                  </div>
+                  <div class="testimonials-text">
+                    <div class="listing-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                    <h2 class="rev-title">Great Products</h2>
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Architecto reprehenderit cumque ipsam eum itaque, sequi
+                      porro quibusdam hic numquam fuga laborum laudantium? Ad
+                      magni porro sapiente veniam recusandae delectus nisi.
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Explicabo, dolorum nemo maiores blanditiis nobis tempore,
+                      porro provident quaerat cum itaque rem neque quod
+                      similique. Maiores ipsa accusamus eum quae exercitationem.
+                    </p>
+                    <div class="testimonials-avatar">
+                      <h3>Anonymous</h3>
+                      <h4>Customer</h4>
+                    </div>
+                  </div>
+                  <div class="testimonials-text-after">
+                    <i class="fa fa-quote-right"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="testi-item">
+                  <div class="testimonials-text-before">
+                    <i class="fa fa-quote-left"></i>
+                  </div>
+                  <div class="testimonials-text">
+                    <div class="listing-rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                    <h2 class="rev-title">Front End Designer is Great</h2>
+                    <p>
+                      The front end web design is very good. Totaly not
+                      complementing myself... Lorem ipsum dolor, sit amet
+                      consectetur adipisicing elit. Architecto reprehenderit
+                      cumque ipsam eum itaque, sequi porro quibusdam hic numquam
+                      fuga laborum laudantium? Ad magni porro sapiente veniam
+                      recusandae delectus nisi. Lorem ipsum dolor sit amet
+                      consectetur, adipisicing elit. Explicabo, dolorum nemo
+                      maiores blanditiis nobis tempore, porro provident quaerat
+                      cum itaque rem neque quod similique.
+                    </p>
+                    <div class="testimonials-avatar">
+                      <h3>Aryan</h3>
+                      <h4>Front End Dev</h4>
+                    </div>
+                  </div>
+                  <div class="testimonials-text-after">
+                    <i class="fa fa-quote-right"></i>
+                  </div>
+                </div>
+              </div>
+              <!--testi end-->
+            </div>
+          </div>
+        </div>
+
+        <div class="tc-pagination"></div>
+      </section>
+
+      <section class="fter" style="font-size: smaller">
+        © Code Clothing — DISCLAIMER: None of our Products are really for sale.
+        We don't sell anything
+      </section>
     </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="./indxe.js"></script>
+    <script src="./navbar.js"></script>
   </body>
 </html>
