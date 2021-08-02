@@ -15,7 +15,7 @@ $("#update-user-btn").on("click", function () {
 $("#update-pass-btn").on("click", function () {
   const newPass = $("#new-pass").val();
   const oldPass = $("#old-pass").val();
-  if (newpass == $("#confirm-new-pass").val()) {
+  if (newPass == $("#confirm-new-pass").val()) {
     if (newPass != "" && oldPass != "") {
       const data = {
         newPassword: newPass,
