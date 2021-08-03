@@ -44,8 +44,6 @@ module.exports = function (app) {
             );
             if (matchingPassword) {
               res.cookie("id", e._id, { maxAge: 24 * 60 * 60 * 1000 });
-              console.log("You are logged in as " + e.username);
-              console.log(req.cookies);
               return res.end("Successfully logged in.");
             } else {
               return res.end("Invalid credentials.");
@@ -170,30 +168,41 @@ module.exports = function (app) {
   app.post("/updateusername", function (req, res) {
     //req.body = {updatedUsername, password}
     db.User.findOne({ _id: req.cookies["id"] }).then(async function (data) {
-      const passwordsMatch = await bcrypt.compare(data.password, req.password);
-      if (passwordsMatch) {
-        db.User.findOneAndUpdate(
-          { _id: req.cookies["id"] },
-          { username: req.body.updatedUsername }
-        ).then(function (data) {
-          res.send("Username changed successfully.");
-        });
-      } else {
-        res.send("Incorrect password.");
+      try {
+        console.log(req.body.password);
+        console.log(data.password);
+        const passwordsMatch = await bcrypt.compare(
+          req.body.password,
+          data.password
+        );
+        if (passwordsMatch) {
+          db.User.findOneAndUpdate(
+            { _id: req.cookies["id"] },
+            { username: req.body.updatedUsername }
+          ).then(function (data) {
+            res.send("Username changed successfully.");
+          });
+        } else {
+          res.send("Incorrect password.");
+        }
+      } catch (err) {
+        console.log(err);
       }
     });
   });
   app.post("/updatepassword", function (req, res) {
     // req.body = {newPassword, oldPassword}
+    console.log(req.body);
     db.User.findOne({ _id: req.cookies["id"] }).then(async function (data) {
       const passwordsMatch = await bcrypt.compare(
-        data.password,
-        req.oldPassword
+        req.body.oldPassword,
+        data.password
       );
+      console.log(passwordsMatch);
       if (passwordsMatch) {
         db.User.findOneAndUpdate(
           { _id: req.cookies["id"] },
-          { password: req.body.newPassword }
+          { password: await bcrypt.hash(req.body.newPassword, 10) }
         ).then(function (data) {
           res.send("Password changed successfully.");
         });
@@ -204,8 +213,12 @@ module.exports = function (app) {
   });
   app.post("/deleteaccount", function (req, res) {
     // req.body = {password}
+
     db.User.findOne({ _id: req.cookies["id"] }).then(async function (data) {
-      const passwordsMatch = await bcrypt.compare(data.password, req.password);
+      const passwordsMatch = await bcrypt.compare(
+        req.body.password,
+        data.password
+      );
       if (passwordsMatch) {
         db.User.findOneAndRemove({ _id: req.cookies["id"] }).then(function (
           data
