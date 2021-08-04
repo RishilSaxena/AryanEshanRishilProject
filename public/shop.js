@@ -22,12 +22,12 @@ if (id == 'all') {
 }
 submit()
 $(".type h3").on("click", function () {
-  $(".type h3 i").toggleClass("fa-angle-down").toggleClass("fa-angle-up");
+  $(".type h3 i").toggleClass("active")
   $(".type .dropdown").toggleClass("active");
 });
 
 $(".price h3").on("click", function () {
-  $(".price h3 i").toggleClass("fa-angle-down").toggleClass("fa-angle-up");
+  $(".price h3 i").toggleClass("active")
   $(".price .dropdown").toggleClass("active");
 });
 $(".type .dropdown ul li.option").on("click", function () {

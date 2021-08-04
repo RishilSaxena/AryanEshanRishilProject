@@ -154,6 +154,8 @@ resize: none;
   overflow-y: auto;
   height: 140px;
   text-align: center;
+  width: 400px;
+  word-wrap: normal;
 }
 .current-reviews .review-user {
   font-size: 24px;

@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400&display=swap");
+body {
+  background: #777;
+}
+.receipt {
+  background: white;
+  width: 600px;
+  min-height: auto;
+  margin: 80px auto 30px;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+  padding: 20px;
+}
+.receipt .title {
+  font-family: "Lexend", sans-serif;
+  text-align: center;
+  padding: 20px 0 0;
+  font-size: 35px;
+  line-height: 50px;
+  font-weight: 900;
+}
+.receipt .title img {
+  filter: brightness(0%);
+  max-width: 50px;
+  position: relative;
+  top: 12px;
+}
+.receipt .slogan {
+  font-family: "Lexend", sans-serif;
+  text-align: center;
+  font-size: 20px;
+  background: black;
+  color: white;
+  width: 450px;
+  border-radius: 20px;
+  line-height: 44px;
+  margin: 0 auto;
+}
+.receipt .address {
+  margin: 10px 0 15px;
+  text-align: center;
+  font-size: 25px;
+}
+.receipt .items {
+  margin: 0 100px;
+}
+.receipt .items .item {
+  line-height: 25px;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+.receipt .items .item .item-price {
+  float: right;
+}
+.receipt .total-container {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 100px;
+}
+.receipt .total-container span.price {
+  float: right;
+}
+.receipt .total-container span.prefix {
+  margin: 0 0 0 50px;
+}
+.receipt .item-num,
+.receipt .time {
+  margin: 5px 0;
+  text-align: center;
+}
+.receipt .barcode {
+  margin: 0 -20px;
+}

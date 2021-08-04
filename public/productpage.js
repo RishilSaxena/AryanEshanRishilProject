@@ -8,7 +8,7 @@ id = id.replace(regex, "");
 console.log(id);
 if (!document.cookie) {
   $(".add-to-cart").attr("disabled", "disabled")
-  $(".add-to-cart").text("Login to add to cart!")
+  $(".add-to-cart").text("Log in for Cart")
 }
 $.get("/products/" + id).then(function (data) {
   const price = data.price.toString().split(".")
@@ -37,7 +37,9 @@ $.get("/products/" + id).then(function (data) {
   });
 });
 $(".add-to-cart").on("click", function() {
-  $.post("/addtocart", {productid: id})
+  $.post("/addtocart", {productid: id}).then(function() {
+    window.location.href = "/cart"
+  })
   console.log("Adding" + id)
 })
 
