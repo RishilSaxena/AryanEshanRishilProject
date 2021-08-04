@@ -75,7 +75,7 @@ module.exports = function (app) {
       },
       {
         name: "Shop All",
-        path: "/shop",
+        path: "/shop/all",
       },
       {
         name: "About Us",
@@ -84,7 +84,19 @@ module.exports = function (app) {
       {
         name: "Account Settings",
         path: "/account"
-      }
+      },
+      {
+        name: "Shop T-shirts",
+        path:"/shop/tshirts"
+      },
+      {
+        name: "Shop Hoodies",
+        path:"/shop/hoodies"
+      },
+      {
+        name: "Shop Accessories",
+        path:"/shop/accessories"
+      },
     ]);
   });
   app.post("/adduser", async function (req, res) {
