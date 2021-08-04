@@ -81,6 +81,7 @@ body {
   margin-top: -15px;
   border-radius: 10px;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .container3 .cart-item .remove:hover {

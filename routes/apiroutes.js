@@ -77,6 +77,14 @@ module.exports = function (app) {
         name: "Shop All",
         path: "/shop",
       },
+      {
+        name: "About Us",
+        path: "/aboutus"
+      },
+      {
+        name: "Account Settings",
+        path: "/account"
+      }
     ]);
   });
   app.post("/adduser", async function (req, res) {
@@ -155,14 +163,23 @@ module.exports = function (app) {
   });
   app.post("/removefromcart", function (req, res) {
     //req.body = {productid: rrjgiserjkgnksjerg};
-    console.log(req.body);
-    db.User.findOneAndUpdate(
-      { _id: req.cookies["id"] },
-      { $pull: { cart: req.body.productid } },
-      { new: true }
-    ).then(function (data) {
-      res.end();
-    });
+    // console.log(req.body);
+    // db.User.findOneAndUpdate(
+    //   { _id: req.cookies["id"] },
+    //   { $pull: { cart: req.body.productid } },
+    //   { new: true }
+    // ).then(function (data) {
+    //   res.end();
+    // });
+
+    db.User.find({_id: req.cookies["id"]}).then(function(data){
+      const cart = data[0].cart;
+      cart.splice(cart.indexOf(req.body.productId), 1);
+      db.User.findOneAndUpdate({_id: req.cookies["id"]}, {cart: cart}).then(function(){
+        res.end();
+      })
+    })
+
     //{$pull: {cart: {$in: [req.body.productid]}}}, {new: true}
   });
   app.post("/updateusername", function (req, res) {
