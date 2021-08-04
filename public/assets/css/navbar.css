@@ -348,7 +348,6 @@ body.no-scroll {
 .quick-links ul li a {
   display: block;
 }
-
 @media only screen and (max-width: 1120px) {
   .menu {
     width: 100%;

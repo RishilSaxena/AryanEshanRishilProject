@@ -208,6 +208,20 @@ form {
 .no-data {
   margin: 50px 0 0 350px;
 }
+.type h3 i {
+  transition: transform 0.3s;
+  transform:rotate(0deg);
+}
+.type h3 i.active {
+  transform:rotate(-180deg);
+}
+.price h3 i {
+  transition: transform 0.3s;
+  transform:rotate(0deg);
+}
+.price h3 i.active {
+  transform:rotate(-180deg);
+}
 @media only screen and (max-width: 1232px) {
   .tile-holder {
     margin: 40px 0;

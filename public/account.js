@@ -6,7 +6,9 @@ $("#update-user-btn").on("click", function () {
       updatedUsername: username,
       password: password,
     };
-    $.post("/updateusername", data);
+    $.post("/updateusername", data).then(function(data){
+      alert(data)
+    });
   } else {
     alert("Invalid Inputs");
   }
@@ -21,7 +23,9 @@ $("#update-pass-btn").on("click", function () {
         newPassword: newPass,
         oldPassword: oldPass,
       };
-      $.post("/updatepassword", data);
+      $.post("/updatepassword", data).then(function(data){
+        alert(data)
+      });
     } else {
       alert("Invalid Inputs");
     }
@@ -77,11 +81,13 @@ $(document).on("click", "#del", function () {
     <input type="password" required id="confirm-pass-del" />
     <label>Confirm Password to Delete</label>
   </div>`);
-  $("#del").attr("id", "del-confirm")
+  $("#del").attr("id", "del-confirm");
 });
 $(document).on("click", "#del-confirm", function () {
-    if (confirm("Are you sure you want to delete...")) {
-        const delPass = $("#confirm-pass-del").val()
-        $.post("/deleteaccount", {password: delPass})
-    }
-})
+  if (confirm("Are you sure you want to delete...")) {
+    const delPass = $("#confirm-pass-del").val();
+    $.post("/deleteaccount", { password: delPass }).then(function(data){
+      alert(data)
+    });
+  }
+});
