@@ -86,7 +86,7 @@ function submit() {
       $(".tile-holder").empty();
       //append data
       data.forEach((e) => {
-        if (e.price > greaterThanPrice && e.price < lessThanPrice) {
+        if (e.price >= greaterThanPrice && e.price <= lessThanPrice) {
           //append data{
             appendData(e);
         }
@@ -97,7 +97,7 @@ function submit() {
       $(".tile-holder").empty();
       let count = 0;
       data.forEach((e) => {
-        if (e.price > greaterThanPrice && e.price < lessThanPrice) {
+        if (e.price >= greaterThanPrice && e.price <= lessThanPrice) {
           //append data
           appendData(e);
           count++;

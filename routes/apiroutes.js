@@ -186,7 +186,8 @@ module.exports = function (app) {
 
     db.User.find({_id: req.cookies["id"]}).then(function(data){
       const cart = data[0].cart;
-      cart.splice(cart.indexOf(req.body.productId), 1);
+      console.log(cart.indexOf(req.body.productid))
+      cart.splice(cart.indexOf(req.body.productid), 1);
       db.User.findOneAndUpdate({_id: req.cookies["id"]}, {cart: cart}).then(function(){
         res.end();
       })
