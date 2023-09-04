@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 
 mongoose.connect(
-  "mongodb+srv://user:mrdan@cluster0.eud2x.mongodb.net/marketplace?retryWrites=true&w=majority",
+  "mongodb+srv://tester:testing123@cluster0.eud2x.mongodb.net/?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
